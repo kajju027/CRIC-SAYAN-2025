@@ -1,406 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CNP FANCODE LIVE - 1.0.5</title>
-<!-- Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" />
-
-<style>
-  :root {
-    --bg-color: #222;
-    --text-color: #fff;
-    --text-shadow-color: #444;
-    --match-bg: #333;
-    --btn-primary-bg: #ff6600;
-    --btn-primary-hover-bg: #cc5500;
-    --btn-primary-text: #fff;
-    --status-live-color: #00ff00;
-    --status-upcoming-color: #888;
-    --hover-shadow-color: rgba(0,0,0,0.7);
-    --link-color: #66ccff;
-    --link-hover-color: #3399ff;
-    --title-color: #ff6600;
-  }
-
-  #particles-js {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -1;
-  }
-
-  body {
-    margin: 0;
-    padding: 20px;
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.4s, color 0.4s;
-    box-sizing: border-box;
-  }
-
-  h1 {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: var(--title-color);
-  }
-
-  @media(max-width: 768px){
-    h1 {
-      font-size: 1.5em;
-    }
-  }
-
-  #whatsapp-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    padding: 12px 20px;
-    background-color: #25D366;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    box-shadow: 0 0 8px rgba(37, 211, 102, 0.8);
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s ease;
-  }
-  #whatsapp-btn:hover {
-    background-color: #1DA851;
-  }
-
-  .file-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .match-item {
-    background-color: var(--match-bg);
-    border-radius: 10px;
-    overflow: hidden;
-    width: calc(25% - 20px);
-    min-width: 250px;
-    padding: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s;
-    position: relative;
-  }
-
-  @media(max-width: 1024px){
-    .match-item {
-      width: calc(33.333% - 20px);
-    }
-  }
-  @media(max-width: 768px){
-    .match-item {
-      width: calc(50% - 20px);
-    }
-  }
-  @media(max-width: 480px){
-    .match-item {
-      width: 100%;
-    }
-  }
-
-  .match-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .match-details {
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .match-details h3 {
-    margin: 5px 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.2em;
-  }
-
-  .status {
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px 0;
-  }
-
-  .live-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    margin-right: 8px;
-    animation: pulse 1.5s infinite;
-  }
-
-  /* Green & red dots */
-  .live-dot-green { background-color: #00ff00; }
-  .live-dot-red   { background-color: #ff0000; }
-
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.3);
-      opacity: 0.6;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  .status-upcoming {
-    color: var(--status-upcoming-color);
-  }
-
-  .stream-button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: var(--btn-primary-bg);
-    color: var(--btn-primary-text);
-    border: none;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  .stream-button:hover {
-    background-color: var(--btn-primary-hover-bg);
-  }
-
-  footer {
-    width: 100%;
-    text-align: center;
-    padding: 20px 10px 24px 10px;
-    background-color: #111;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    margin-top: 40px;
-    position: relative;
-    left: 0;
-    bottom: 0;
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>SONY ENTERTAINMENT LIVE | SAYAN  1.0.2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/dplayer/dist/DPlayer.min.css">
+    <script src="https://unpkg.com/dplayer/dist/DPlayer.min.js"></script>
+    <style>
+        html, body { margin:0; padding:0; min-height:100vh; width:100vw; overflow-x: hidden; }
+        body { font-family: 'Montserrat', Arial, sans-serif; color:#fff; transition: background 1s;}
+        h1 {
+            margin:0 0 0 0; font-size:2.3rem; letter-spacing:4.2px; text-align:center;
+            font-family:'Orbitron',Arial,monospace;font-weight:900;
+            text-shadow: 0 0 16px #00fff9, 0 2px 22px #0f0, 0 0 3px #fff, 0 0 10px #01fbc1;
+            background: linear-gradient(90deg, #00fff9 30%, #01fbc1 60%, #0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 24px #00fff988);
+            padding: 34px 0 18px 0; user-select:none;
+        }
+        .container { width:100vw; max-width:100vw; margin:0 auto 0 auto; padding:0;}
+        .video-player-wrap {
+            width:100vw; min-height:45vh; background:linear-gradient(120deg,#161e23 70%,#00192c 100%);
+            display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start;
+            position:relative; border-radius:0 0 18px 18px; box-shadow:0 9px 36px #00fff922;
+        }
+        .video-player {
+            flex:1; display:flex; flex-direction:column; align-items:stretch; justify-content:stretch;
+            position:relative; min-height:43vh; margin:0;
+        }
+        #dplayer { width:100vw; max-width:100vw; height:54vw; min-height:320px; max-height:82vh; border-radius:0 0 16px 16px; background:#111; box-shadow:0 6px 40px #00fff99c; }
+        .video-sayan {
+            position:absolute; right:13px; top:14px;
+            font-family:'Orbitron', Arial, sans-serif; font-size:0.70rem; font-weight:900; letter-spacing:2px;
+            opacity:0.17; color:#fff;
+            text-shadow:0 0 10px #00fff9, 0 0 2px #000; user-select:none; pointer-events:none; z-index:2;
+        }
+        .player-btns-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 370px;
+            margin: 14px auto 0 auto;
+            gap: 13px;
+        }
+        .appnow-btn, .fullscreen-btn {
+            display: flex;
+            align-items: left;
+            gap: 10px;
+            font-size: 1.07rem;
+            font-family: 'Orbitron', Arial, sans-serif;
+            font-weight: 900;
+            padding: 11px 24px 11px 14px;
+            border-radius: 13px;
+            outline: none;
+            border: none;
+            box-shadow: 0 2px 10px #00fff940,0 1px 7px #2225;
+            background: linear-gradient(90deg,#00fff9 0%,#181818 100%);
+            color: #101a3c;
+            cursor: pointer;
+            transition: background 0.15s, box-shadow 0.12s, color 0.14s, transform 0.13s;
+        }
+        .fullscreen-btn {
+            background: linear-gradient(90deg,#08c8f6 0%,#fff100 100%);
+            color: #101a3c;
+        }
+        .fullscreen-btn:hover,.appnow-btn:hover {
+            background: linear-gradient(90deg,#fff100 0%,#08c8f6 100%);
+            color: #191969;
+            transform:scale(1.04);
+        }
+        .appnow-btn .pwa-icon {
+            width:22px;height:22px;filter:drop-shadow(0 0 1px #000a);
+            background: linear-gradient(120deg,#fff100 10%,#fff 50%,#000 120%);
+            border-radius:5px;padding:2px;
+        }
+        .appnow-btn .cinematic {
+            font-size:1.01rem;font-weight:900;margin-left:5px;letter-spacing:2px;
+            background:linear-gradient(90deg,#fff100 10%,#fff 30%,#111 100%);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            filter:drop-shadow(0 0 4px #fff10099);
+            text-shadow:0 0 9px #18181866,0 1px 9px #fff,0 0 6px #fff10077;
+        }
+        .appnow-btn[disabled] {
+            background: #aaa !important;
+            color: #333 !important;
+            cursor: not-allowed;
+        }
+        .logo-container { display:flex; flex-wrap:wrap; justify-content:center; gap:28px; margin-top:30px; }
+        .logo-card {
+            background:linear-gradient(120deg,#212c32 60%,#1e466a 100%);
+            border-radius:17px; box-shadow:0 2px 13px #183b5480; padding:19px 15px 8px 15px;
+            width:160px; margin-bottom:13px; text-align:center; transition:transform 0.13s, box-shadow 0.11s;
+            font-family:'Orbitron',Arial,sans-serif; cursor:pointer; position:relative;
+            border:1.7px solid #00fff8; background-blend-mode:lighten; filter:drop-shadow(0 0 6px #00fff943);
+        }
+        .logo-card:hover { transform:scale(1.06) translateY(-4px) rotate(-1.5deg); box-shadow:0 10px 32px #00fff966; z-index:2; border-color:#00e3ff;}
+        .channel-logo { width:65px; height:65px; object-fit:contain; border-radius:11px; margin-bottom:10px; background:#fff3; box-shadow:0 2px 8px #2225; border:1.6px solid #00fff9;}
+        .channel-name { font-size:15px; font-weight:900; margin-bottom:0; letter-spacing:1px; font-family:'Montserrat',Arial,sans-serif; color:#dcefff; opacity:.93; margin-top:2px; text-shadow:0 1px 4px #000c;}
+        /* Loader */
+        .loader-bg {
+            position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;
+            background:linear-gradient(120deg,#181e29 0%,#00192c 100%);
+            display:flex;align-items:center;justify-content:center;overflow:hidden;flex-direction:column;
+            animation:fadein 1s;
+        }
+        .loader-simple {
+            display:flex;flex-direction:column;align-items:center;gap:22px;
+        }
+        .lds-ring {display:inline-block;position:relative;width:70px;height:70px;}
+        .lds-ring div {box-sizing:border-box;display:block;position:absolute;width:56px;height:56px;margin:7px;border:6px solid #fff100;border-radius:50%;animation:lds-ring 1.1s cubic-bezier(0.5,0,0.5,1) infinite;border-color:#fff100 transparent transparent transparent;}
+        .lds-ring div:nth-child(1) {animation-delay:-0.35s;}
+        .lds-ring div:nth-child(2) {animation-delay:-0.2s;}
+        .lds-ring div:nth-child(3) {animation-delay:-0.1s;}
+        @keyframes lds-ring {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+        .loader-text {margin-top:18px; font-family:'Orbitron',Arial,sans-serif; color:#fff100; font-size:1.13rem; font-weight:900; letter-spacing:2.5px; text-shadow:0 0 9px #fff100;}
+        .loader-note {margin-top:36px;color:#fff;font-family:'Montserrat',Arial,sans-serif;font-size:1.01rem;font-weight:bold;opacity:0.93;letter-spacing:2.3px;filter:drop-shadow(0 0 7px #fff100b0);text-align:center;width:310px;}
+        @keyframes fadein {from{opacity:0;}to{opacity:1;}}
+        .footer {text-align:center;margin-top:45px;font-size:1.2rem;color:#c9e1ff;letter-spacing:1.1px;padding-bottom:18px;text-shadow:0 1px 8px #14274e40;font-family:'Montserrat',Arial,sans-serif;font-weight:900;}
+        .contact-btns {margin-top:28px;margin-bottom:7px;display:flex;justify-content:center;gap:28px;}
+        .contact-btn {display:inline-flex;align-items:center;font-family:'Montserrat',Arial,sans-serif;font-size:1.12rem;font-weight:900;text-decoration:none;padding:13px 30px;border-radius:33px;background:linear-gradient(90deg,#2af598 0%,#009efd 100%);color:#fff;box-shadow:0 4px 12px #0073b860;transition:background 0.17s,transform 0.12s;border:none;outline:none;}
+        .contact-btn:hover {background:linear-gradient(90deg,#009efd 0%,#2af598 100%);transform:scale(1.04);color:#fff;box-shadow:0 6px 24px #009efd80;}
+        .telegram {background:linear-gradient(90deg,#4faaff 0%,#1dcaff 100%);}
+        .telegram:hover {background:linear-gradient(90deg,#1dcaff 0%,#4faaff 100%);}
+        .tg-icon {width:22px;height:22px;margin-right:10px;filter:invert(0.5);}
+        .visit-label {font-size:1.09rem;color:#00fff9;font-family:'Orbitron',Arial,monospace;font-weight:bold;margin-left:18px;margin-right:5px;letter-spacing:2px;text-shadow:0 0 8px #00fff9,0 0 3px #0ff;}
+        .visit-img {vertical-align:middle;margin-left:5px;margin-top:-2px;height:30px;border-radius:7px;box-shadow:0 0 5px #00fff9b7;background:#fff0;}
+        @media (max-width:900px){.logo-container{gap:11px;}.logo-card{width:110px;padding:10px 5px 7px 5px;}.channel-logo{width:46px;height:46px;}#dplayer{height:35vw;min-height:160px;}.video-player,.video-player-wrap{max-width:100vw;}.footer{font-size:0.99rem;}}
+        @media (max-width:600px){.video-player{padding:7px 0;}#dplayer{height:55vw;min-height:120px;border-radius:7px;}.modal-content{min-width:150px;padding:9px 4px 6px 4px;}h1{font-size:1.1rem;}.channel-logo{width:34px;height:34px;}.logo-card{width:60px;}.video-sayan{font-size:0.51rem;right:8px;top:7px;}.footer{font-size:0.81rem;}.fullscreen-btn{font-size:.87rem;padding:5px 13px 5px 10px;}}
+    </style>
 </head>
 <body>
-
-<h1>CNP FANCODE LIVE</h1>
-<!-- ওয়াটসঅ্যাপ বোতাম -->
-<button id="whatsapp-btn" aria-label="Join WhatsApp Channel" title="Join WhatsApp Channel">
-  WhatsApp Channel
-</button>
-
-<!-- পার্টিকল -->
-<div id="particles-js"></div>
-
-<!-- ম্যাচের তালিকা -->
-<div class="file-container" id="matches"></div>
-
-<!-- পার্টিকল লাইব্রেরি -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<script>
-  // পার্টিকল কনফিগারেশন
-  particlesJS('particles-js', {
-    "particles": {
-      "number": {
-        "value": 80,
-        "density": {
-          "enable": true,
-          "value_area": 800
-        }
-      },
-      "color": {
-        "value": "#ffffff"
-      },
-      "shape": {
-        "type": "circle"
-      },
-      "opacity": {
-        "value": 0.5
-      },
-      "size": {
-        "value": 5,
-        "random": true
-      },
-      "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#ffffff",
-        "opacity": 0.4,
-        "width": 1
-      },
-      "move": {
-        "enable": true,
-        "speed": 8
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "grab"
-        },
-        "onclick": {
-          "enable": true,
-          "mode": "push"
-        }
-      },
-      "modes": {
-        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
-        "push": { "particles_nb": 4 }
-      }
-    },
-    "retina_detect": true
-  });
-
-  // ওয়াটসঅ্যাপ চ্যানেল লিঙ্ক
-  document.getElementById('whatsapp-btn').addEventListener('click', () => {
-    window.open('https://wa.me/?text=Join%20my%20WhatsApp%20Channel:%20https://whatsapp.com/channel/0029Va9UKhEL7UVN6cfr8a16', '_blank');
-  });
-
-  // ম্যাচ ডেটা
-  const apiURL = 'https://raw.githubusercontent.com/drmlive/fancode-live-events/main/fancode.json';
-  const playerBaseURL = 'https://fancodez.kajju3864.workers.dev/ios=';
-
-  // কালার থিম
-  const themes = [
-    {
-      name: 'প্রিয় নীল ব্লু',
-      '--bg-color': '#0d1b2a',
-      '--text-color': '#ffffff',
-      '--text-shadow-color': '#222',
-      '--match-bg': '#1b263b',
-      '--btn-primary-bg': '#1f4068',
-      '--btn-primary-hover-bg': '#16315f',
-      '--btn-primary-text': '#fff',
-      '--status-live-color': '#00ff00',
-      '--status-upcoming-color': '#888',
-      '--hover-shadow-color': 'rgba(0,255,0,0.7)',
-      '--link-color': '#66ccff',
-      '--link-hover-color': '#3399ff',
-      '--title-color': '#00ffcc'
-    }
-  ];
-
-  let currentThemeIndex = 0;
-  function applyTheme(index) {
-    const theme = themes[index];
-    if (!theme) return;
-    Object.entries(theme).forEach(([k,v]) => {
-      if(k.startsWith('--')){
-        document.documentElement.style.setProperty(k, v);
-      }
-    });
-  }
-  applyTheme(currentThemeIndex);
-
-  // Helper: ওয়াজ লাইভ কিনা চেক করা
-  function isWazLive(match) {
-    // ধরলাম title, team_1, team_2, অথবা অন্য কোথাও 'ওয়াজ লাইভ' আছে কি না!
-    // তুমি চাইলে এখানে কাস্টমাইজ করতে পারো
-    const t = (match.title || "").trim().toLowerCase();
-    return t.includes('ওয়াজ লাইভ') || t.includes('waz live');
-  }
-
-  // ম্যাচ ডেটা দেখানো
-  fetch(apiURL)
-    .then(res => res.json())
-    .then(data => {
-      data.matches.sort((a, b) => {
-        if (a.status.toLowerCase() === 'live' && b.status.toLowerCase() !== 'live') return -1;
-        if (a.status.toLowerCase() !== 'live' && b.status.toLowerCase() === 'live') return 1;
-        return 0;
-      });
-      const container = document.getElementById('matches');
-      data.matches.forEach(match => {
-        const div = document.createElement('div');
-        div.className = 'match-item';
-
-        // Determine dot color
-        let dotClass = 'live-dot-red';
-        if (match.status && match.status.toLowerCase() === 'live' && isWazLive(match)) dotClass = 'live-dot-green';
-
-        const statusText = match.status && match.status.toLowerCase() === 'live' ? 'Live' : 'Upcoming';
-        const statusClass = match.status && match.status.toLowerCase() === 'live' ? 'status-live' : 'status-upcoming';
-
-        const startTimeDisplay = match.status && match.status.toLowerCase() === 'upcoming' ? `<p>Start Time: ${match.startTime}</p>` : '';
-
-        const imageUrl = match.src || 'https://via.placeholder.com/300x200?text=No+Image';
-
-        div.innerHTML = `
-          <img src="${imageUrl}" alt="${match.title}">
-          <div class="match-details">
-            <h3>${match.team_1} vs ${match.team_2}</h3>
-            <div class="${statusClass}">
-              <div class="live-dot ${dotClass}"></div> ${statusText}
+    <!-- Loader -->
+    <div class="loader-bg" id="loaderBg">
+        <div class="loader-simple">
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            <div class="loader-text">LOADING...</div>
+            <div class="loader-note">SONY ENTERTAINMENT IS NOW LIVE</div>
+        </div>
+    </div>
+    <h1>SONY ENTERTAINMENT LIVE</h1>
+    <div class="container" id="mainContainer" style="display:none;">
+        <div class="video-player-wrap">
+            <div class="video-player" id="playerBox" style="position:relative;">
+                <div class="player-btns-bar">
+                    <button class="appnow-btn" id="installBtn" style="display:none;">
+                        <img class="pwa-icon" src="https://img.icons8.com/ios-filled/50/000000/home-page.png" alt="App Now"/>
+                        <span>Add to <span class="cinematic">App Now</span></span>
+                    </button>
+                    <button class="fullscreen-btn" id="fullscreenBtn" title="Full Screen">
+                        <svg class="fullscreen-icon" viewBox="0 0 20 20"><path fill="#101a3c" d="M2 2h5v2H4v3H2V2zm11 0h5v5h-2V4h-3V2zm5 11v5h-5v-2h3v-3h2zm-11 5H2v-5h2v3h3v2z"/></svg>
+                        Full Screen
+                    </button>
+                </div>
+                <div class="video-sayan">SAYAN O.AI</div>
+                <div id="dplayer"></div>
             </div>
-            ${startTimeDisplay}
-            <button class="stream-button">
-              ${match.status && match.status.toLowerCase() === 'live' ? '<div class="live-dot '+dotClass+'"></div>' : ''}
-              Watch ${match.status && match.status.toLowerCase() === 'live' ? 'Now' : match.startTime}
-            </button>
-          </div>
-        `;
-        div.querySelector('.stream-button').addEventListener('click', (e) => {
-          e.stopPropagation();
-          if (match.dai_url) {
-            window.location.href = playerBaseURL + match.dai_url;
-          } else {
-            alert('No stream available.');
-          }
-        });
-        div.addEventListener('click', () => {
-          if (match.status && match.status.toLowerCase() === 'live') {
-            alert('This match is live. Click the button to watch.');
-          } else {
-            alert('Upcoming match at: ' + match.startTime);
-          }
-        });
-        container.appendChild(div);
-      });
-    })
-    .catch(console.error);
-</script>
+        </div>
+        <div class="logo-container" id="channels"></div>
+    </div>
+    <div class="contact-btns">
+        <a class="contact-btn telegram" href="https://t.me/Sayan_xyz?text=Hi%20I%20am%20messaging%20you%20from%20your%20website!" target="_blank" rel="noopener">
+            <img class="tg-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram"/>Contact on Telegram
+        </a>
+    </div>
+    <div class="footer">
+        © Sayan 2024 | All Rights Reserved
+        <span class="visit-label">Visitor</span>
+        <img class="visit-img" src="https://visit-counter.vercel.app/counter.png?page=https%3A%2F%2Fsony-entertainment-live.pages.dev%2F&s=65&c=00fff9&bg=00000000&no=8&ff=digi&tb=&ta=" alt="visits">
+    </div>
+    <script>
+    // ২৪ ঘন্টার কালার চেঞ্জ
+    const gradients = [
+        "linear-gradient(120deg, #1cb5e0, #000891)",
+        "linear-gradient(120deg, #43cea2, #185a9d)",
+        "linear-gradient(120deg, #e96443, #904e95)",
+        "linear-gradient(120deg, #ff6a00, #ee0979)",
+        "linear-gradient(120deg, #00c3ff, #ffff1c)",
+        "linear-gradient(120deg, #f7971e, #ffd200)",
+        "linear-gradient(120deg, #00f2fe, #4facfe)",
+        "linear-gradient(120deg, #fc466b, #3f5efb)",
+        "linear-gradient(120deg, #e1eec3, #f05053)",
+        "linear-gradient(120deg, #ed4264, #ffedbc)",
+        "linear-gradient(120deg, #2b5876, #4e4376)",
+        "linear-gradient(120deg, #1e3c72, #2a5298)",
+        "linear-gradient(120deg, #00c6fb, #005bea)",
+        "linear-gradient(120deg, #00d2ff, #928dab)",
+        "linear-gradient(120deg, #f7971e, #ffd200)",
+        "linear-gradient(120deg, #8360c3, #2ebf91)",
+        "linear-gradient(120deg, #ff0084, #33001b)",
+        "linear-gradient(120deg, #fc00ff, #00dbde)",
+        "linear-gradient(120deg, #a8ff78, #78ffd6)",
+        "linear-gradient(120deg, #f857a6, #ff5858)",
+        "linear-gradient(120deg, #c471f5, #fa71cd)",
+        "linear-gradient(120deg, #30cfd0, #330867)",
+        "linear-gradient(120deg, #3a6186, #89253e)",
+        "linear-gradient(120deg, #fceabb, #f8b500)"
+    ];
+    function setBackgroundByTime() {
+        const now = new Date();
+        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        const ist = new Date(utc + (5.5 * 3600000));
+        const hour = ist.getHours();
+        document.body.style.background = gradients[hour % 24];
+    }
+    setBackgroundByTime();
+    setInterval(setBackgroundByTime, 60000);
 
-<footer>
-  <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:15px;">
-    <span>©Sayan 2025 | All Rights Reserved</span>
-    <img src="https://visit-counter.vercel.app/counter.png?page=https%3A%2F%2Ffamcode.onrender.com%2F&s=55&c=ffffff&bg=00000000&no=1&ff=digii&tb=&ta=" alt="visits" style="vertical-align:middle;height:28px;">
-    <a href="https://t.me/sayan_xyz" target="_blank" title="@sayan_xyz" style="display:inline-flex;align-items:center;">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="#229ED9" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9.6,17.37a1,1,0,0,0,.95.67h.11a1,1,0,0,0,.91-.79l1.29-5.17,4.24-3.85A1,1,0,0,0,16,6.27l-12,4A1,1,0,0,0,4,12.23l3.08,1.12,1.23,4.07Zm1.58-1.34-1.23-4.08a1,1,0,0,0-.67-.68L6,10.61l8.77-2.91-3.62,3.28a1,1,0,0,0-.31.52Z"/>
-      </svg>
-    </a>
-  </div>
-</footer>
+    // Loader remove, mainContainer show
+    setTimeout(function() {
+        document.getElementById('loaderBg').style.display = "none";
+        document.body.style.overflow = "";
+        document.getElementById('mainContainer').style.display = "";
+    }, 1600);
 
+    // --- চ্যানেল ডেটা (logo, নাম,) ---
+    const channelDataRaw = [
+        ["Sony Sports Ten 1", "https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen1_SD_Logo_CLR.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNzM5L1RFTjFTRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 2", "https://jiotvimages.cdn.jio.com/dare_images/images/Ten2_HD.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDIwNTkwL1RFTjJTRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 3", "https://jiotvimages.cdn.jio.com/dare_images/images/Ten_3.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDIwNTkyL1RFTjNTRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 4", "https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen4_SD_Logo_CLR.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDIwNDM3L3RlbjRzZC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 5", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Six_SD.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDIwNTk0L1NPTllTSVhTRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 1 HD", "https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen1_HD_Logo_CLR.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNzQ3L1RFTjFIRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 2 HD", "https://jiotvimages.cdn.jio.com/dare_images/images/Ten2_HD.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDIwNDM0L1RFTjJIRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 3 HD", "https://jiotvimages.cdn.jio.com/dare_images/images/Ten3_HD.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDIwNTkxL1RFTjNIRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 4 HD", "https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen4_HD_Logo_CLR.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDIwNTg5L3RlbjRoZC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony Sports Ten 5 HD", "https://www.sonypicturesnetworks.com/images/logos/SONY_SportsTen5_HD_Logo_CLR.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDIwNTkzL1NPTllTSVhIRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["SET HD", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_HD.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNjcxL1NFVEhEL21hc3Rlcl8xMzAwLm0zdTg="],
+        ["Sony SAB HD", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_SAB_HD.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNzQ5L1NBQkhEL21hc3Rlcl8xMzAwLm0zdTg="],
+        ["Sony Marathi", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Marathi_SD.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNzQwL1NvbnlNYXJhdGhpL21hc3Rlcl8xMzAwLm0zdTg="],
+        ["Sony Pal", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Pal.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNzQxL1NvbnlQYWxTRC9tYXN0ZXJfMTMwMC5tM3U4="],
+        ["Sony Kal", "https://i.ibb.co/JFrTDg2k/275853749-1027757541419082-8885487251764233689-n.jpg", "aHR0cHM6Ly9zcHQt c29ueWthbC0xLXVzLmxnLnd1cmwudHYvcGxheWxpc3QubTN1OA=="],
+        ["Sony Aath", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_aath.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNjQxL1NvbnlBYXRoU0QvbWFzdGVyXzEzMDAubTN1OA=="],
+        ["Sony Yay", "https://jiotvimages.cdn.jio.com/dare_images/images/Sony_Yay_Hindi.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNzQ2L1NvbnlZYXlTRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony MAX HD", "https://www.sonypicturesnetworks.com/images/logos/Sony_MAX-HD_WHITE.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNjcwL1NvbnlNYXhoZC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony MAX", "https://jiotv.catchup.cdn.jio.com/dare_images/images/Sony_Max_SD.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNzQ1L1NvbnlNYXhTRC9tYXN0ZXJfMTMwMC5tM3U4"],
+        ["Sony MAX 2", "https://www.sonypicturesnetworks.com/images/logos/Sony_MAX2.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExOTA4L01BWDIv bWFzdGVyXzEzMDAubTN1OA=="],
+        ["Sony WAH", "https://www.sonypicturesnetworks.com/images/logos/Sony_WAH.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExOTA2L1NvbnlXYWgvbWFzdGVyXzEzMDAubTN1OA=="],
+        ["Sony PIX HD", "https://www.sonypicturesnetworks.com/images/logos/PIX%20HD_WHITE.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExNzQ4L1BJWEhEL21hc3Rlcl8xMzAwLm0zdTg="],
+        ["Sony BBC Earth HD", "https://www.sonypicturesnetworks.com/images/logos/SBBCE_LOGO_NEW_PNG.png", "aHR0cHM6Ly90YXRhcGxheS5zbGl2Y2RuLmNvbS9obHMvbGl2ZS8yMDExOTA3L1NvbnlCQkNFYXJ0aEhkL21hc3Rlcl8xMzAwLm0zdTg="]
+    ];
+
+    function decodeBase64(s) {
+        try { return atob(s.replace(/\s+/g,'')); } catch(e){ return ""; }
+    }
+
+    // DPlayer instance
+    let dp;
+
+    function playDPlayer(m3u8url) {
+        if(dp) {
+            dp.switchVideo({ url: m3u8url, type: 'hls' });
+            dp.play();
+        } else {
+            dp = new DPlayer({
+                container: document.getElementById('dplayer'),
+                live: true,
+                danmaku: true,
+                apiBackend: {
+                    read: function (options) {
+                        options.success([]);
+                    },
+                    send: function (options) {
+                        options.success();
+                    },
+                },
+                video: {
+                    url: m3u8url,
+                    type: 'hls',
+                },
+            });
+        }
+    }
+
+    function renderChannels() {
+        const container = document.getElementById('channels');
+        container.innerHTML = "";
+        channelDataRaw.forEach((ch, i) => {
+            const div = document.createElement('div');
+            div.className = "logo-card";
+            div.title = ch[0];
+            div.innerHTML = `<img class="channel-logo" src="${ch[1]}" alt="${ch[0]} Logo"/><div class="channel-name">${ch[0]}</div>`;
+            div.onclick = function() {
+                let link = decodeBase64(ch[2]);
+                playDPlayer(link);
+            };
+            container.appendChild(div);
+        });
+    }
+    renderChannels();
+
+    // ডিফল্ট ভিডিও: Sony MAX HD (index 17)
+    setTimeout(() => {
+        let url = decodeBase64(channelDataRaw[17][2]);
+        if(url) playDPlayer(url);
+    }, 800);
+
+    document.getElementById('fullscreenBtn').onclick = function(){
+        let el = document.getElementById('playerBox');
+        if(el.requestFullscreen) el.requestFullscreen();
+        else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+        else if(el.mozRequestFullScreen) el.mozRequestFullScreen();
+        else if(el.msRequestFullscreen) el.msRequestFullscreen();
+    };
+
+    // App Now (Add to Home) PWA prompt
+    let deferredPrompt, installBtn = document.getElementById('installBtn');
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.style.display = "";
+    });
+    installBtn.addEventListener('click', function() {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    installBtn.innerHTML = '<img class="pwa-icon" src="https://img.icons8.com/ios-filled/50/000000/checked--v1.png" alt="Pinned"/> <span>Pinned to <span class="cinematic">App Now</span></span>';
+                    installBtn.disabled = true;
+                }
+                deferredPrompt = null;
+            });
+        } else {
+            alert("If not working, use your browser menu → Add to Home Screen.");
+        }
+    });
+    </script>
 </body>
-
 </html>

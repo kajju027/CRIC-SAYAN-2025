@@ -1,0 +1,70 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.css">
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.polyfilled.js"></script>
+
+<style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-container {
+      position: relative;
+      width: 110%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    video {
+      width: 110%;
+      max-height: 100%;
+      object-fit: contain; /* keeps correct aspect ratio */
+      background: #000;
+    }
+  </style>
+<div class="video-container">
+<video autoplay="yes" oncanplay="this.muted=true"  id="player" controls preload="metadata" poster="https://i.ibb.co/twQ9J4RH/473bb2e2-f37d-499f-8099-354959666670.png" id="player" controls></video></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const video = document.getElementById("player");
+      const source = "https://media.onestream.studio/content/hls/live/live_4139402_6zjrbyf6x/hls.m3u8";
+
+      if (Hls.isSupported()) {
+        const hls = new Hls({
+          xhrSetup: function (xhr) {
+            xhr.setRequestHeader("Ortmp", "south-asia-mumbai-1");
+            xhr.setRequestHeader("X-Origin-Host", "south-asia-mumbai-1");
+            xhr.setRequestHeader("vKey", "live_4139402_ss0if8fm7?auth=p_auth_4139402_754stsirp");
+            xhr.setRequestHeader("Referer", "https://app.onestream.live/multicast");
+            xhr.setRequestHeader("User-Agent", "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36");
+          }
+        });
+        hls.loadSource(source);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = source;
+        video.addEventListener("loadedmetadata", () => video.play());
+      }
+
+      new Plyr(video);
+    });
+</script>

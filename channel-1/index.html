@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>STAR SPORTS BY CRICKET NEWS POINT</title>
+  <title>STAR SPORTS 1 HINDI BY CRICKET NEWS POINT</title>
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
   <style>
     body {
@@ -41,8 +41,6 @@
       box-shadow: 0 8px 40px 0 rgba(29,185,84,0.35);
       border: 2.5px solid #1db954;
     }
-
-    /* Plyr Custom Green Theme */
     .plyr--full-ui input[type=range] {
       color: #1db954;
     }
@@ -94,7 +92,6 @@
       box-shadow: 0 0 8px 0 rgba(29,185,84,0.12);
       border: 1.5px solid rgba(29,185,84,0.20);
     }
-    /* Responsive */
     @media (max-width:700px) {
       .video-container {height:auto;}
       video {height:50vw;}
@@ -109,7 +106,7 @@
 </head>
 <body>
   <div class="video-container">
-    <video id="player" controls autoplay playsinline></video>
+    <video id="player" controls autoplay muted playsinline></video>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
@@ -120,6 +117,11 @@
       .then(data => {
         const m3u8Url = data.stream_url;
         const video = document.getElementById('player');
+        video.setAttribute('muted', ''); // just in case
+        video.muted = true; // for programmatic mute (for autoplay)
+        function tryPlay() {
+          video.play().catch(()=>{});
+        }
         if (Hls.isSupported()) {
           const hls = new Hls();
           hls.loadSource(m3u8Url);
@@ -129,7 +131,7 @@
               controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
               settings: ['quality', 'speed']
             });
-            video.play();
+            tryPlay();
           });
         } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
           video.src = m3u8Url;
@@ -138,11 +140,14 @@
               controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
               settings: ['quality', 'speed']
             });
-            video.play();
+            tryPlay();
           });
         } else {
           alert("Your browser does not support HLS.");
         }
+        // fallback: user gesture
+        document.body.addEventListener('click', tryPlay, {once:true});
+        document.body.addEventListener('touchstart', tryPlay, {once:true});
       })
       .catch(err => {
         console.error('Failed to load stream:', err);

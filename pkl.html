@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Sports 1 Hindi HD</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css" crossorigin="anonymous">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      background: #000;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .shaka-video-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      object-fit: contain;
+    }
+    .shaka-spinner-container,
+    .shaka-spinner,
+    .shaka-spinner-svg {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+
+    /* Popup styles */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .popup {
+      background: #111;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 350px;
+      width: 90%;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      animation: fadeIn 0.4s ease;
+    }
+    .popup h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #00bfff;
+    }
+    .popup p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+    .popup button {
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 0.5rem;
+      transition: background 0.3s;
+    }
+    .popup .join-btn {
+      background: #0088cc;
+      color: #fff;
+    }
+    .popup .join-btn:hover {
+      background: #0077b3;
+    }
+    .popup .close-btn {
+      background: #444;
+      color: #fff;
+    }
+    .popup .close-btn:hover {
+      background: #333;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="shaka-video-container" data-shaka-player>
+    <video autoplay playsinline preload="metadata" poster=""></video>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup">
+      <h2>Support Us</h2>
+      <p>Join our Telegram channel to continue watching live streams.</p>
+      <button class="join-btn" onclick="window.open('https://t.me/+LLV2QMzcPMQwMzhl','_blank')">Join Now</button>
+      <button class="close-btn" onclick="closePopup()">Already Joined</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      shaka.polyfill.installAll();
+      if (!shaka.Player.isBrowserSupported()) {
+        console.error('Browser not supported');
+        return;
+      }
+
+      const video = document.querySelector('video');
+      const player = new shaka.Player();
+      await player.attach(video);
+
+      const container = document.querySelector('.shaka-video-container');
+      const ui = new shaka.ui.Overlay(player, container, video);
+
+      ui.configure({
+        controlPanelElements: [
+          'play_pause', 'time_and_duration', 'mute', 'volume',
+          'spacer', 'language', 'captions', 'picture_in_picture',
+          'quality', 'fullscreen'
+        ],
+        volumeBarColors: {
+          base: 'rgba(63, 187, 1, 1)',
+          level: 'rgb(255, 69, 0)'
+        },
+        seekBarColors: {
+          base: 'rgb(41, 41, 163)',
+          buffered: 'rgb(35, 99, 3)',
+          played: 'rgba(63, 187, 1, 1)'
+        }
+      });
+
+      let drmConfig = {
+        clearKeys: {
+          "400131994b445d8c8817202248760fda": "2d56cb6f07a75b9aff165d534ae2bfc4"
+        }
+      };
+
+      let cookieHeader = "__hdnea__=st=1758378331~exp=1758464731~acl=/*~hmac=81d1029af9e543651af99fadef6d7aa7245bbe27e2a45cad218e7a20817f1960";
+      let streamUrl = "https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Sports_HD1_Hindi_BTS/output/index.mpd";
+
+      player.configure({
+        drm: drmConfig,
+        streaming: {
+          lowLatencyMode: true,
+          bufferingGoal: 15,
+          rebufferingGoal: 2,
+          bufferBehind: 15,
+          retryParameters: {
+            timeout: 10000,
+            maxAttempts: 5,
+            baseDelay: 300,
+            backoffFactor: 1.2
+          },
+          segmentRequestTimeout: 8000,
+          segmentPrefetchLimit: 2,
+          useNativeHlsOnSafari: true
+        },
+        manifest: {
+          retryParameters: { timeout: 8000, maxAttempts: 3 }
+        }
+      });
+
+      player.getNetworkingEngine().registerRequestFilter((type, request) => {
+        request.headers['Referer'] = 'https://www.jiotv.com/';
+        request.headers['User-Agent'] = "plaYtv/7.1.5 (Linux;Android 13) ExoPlayerLib/2.11.6";
+        if (cookieHeader) request.headers['Cookie'] = cookieHeader;
+
+        if (
+          (type === shaka.net.NetworkingEngine.RequestType.MANIFEST ||
+           type === shaka.net.NetworkingEngine.RequestType.SEGMENT) &&
+          request.uris[0] && cookieHeader && !request.uris[0].includes('__hdnea=')
+        ) {
+          const sep = request.uris[0].includes('?') ? '&' : '?';
+          request.uris[0] += sep + cookieHeader;
+        }
+      });
+
+      const attemptAutoplay = async () => {
+        try {
+          video.muted = false;
+          await video.play();
+          return true;
+        } catch {
+          try {
+            video.muted = true;
+            await video.play();
+            return true;
+          } catch {
+            return false;
+          }
+        }
+      };
+
+      try {
+        await player.load(streamUrl);
+        await attemptAutoplay();
+      } catch (e) {
+        console.error("Initial load failed:", e);
+      }
+
+      player.addEventListener('error', e => console.error("Shaka Error:", e.detail));
+    });
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

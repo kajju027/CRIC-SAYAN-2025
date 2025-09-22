@@ -115,7 +115,7 @@ if(matchUrl){
 // Load match details
 async function loadMatchDetails(){
   try {
-    const res = await fetch('https://raw.githubusercontent.com/Odfinity/live-events/refs/heads/main/fancode/data.json');
+    const res = await fetch('https://raw.githubusercontent.com/drmlive/fancode-live-events/main/fancode.json');
     const data = await res.json();
     const match = data.matches.find(m => (m.dai_url === matchUrl || m.adfree_url === matchUrl));
     if(!match){

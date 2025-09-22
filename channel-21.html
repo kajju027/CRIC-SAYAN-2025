@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CRICKET NEWS POINT - 20</title>
+    <title>CRICKET NEWS POINT -21</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
     :root {
@@ -12,10 +12,10 @@
         --accent: #25D366;
         --accent2: #1b6ef3;
         --main-text: #eaf6ff;
-        --deep-green: #059669;
-        --deep-red: #c0392b;
+        --deep-green: #09e36a;
+        --deep-red: #ee2c2c;
         --shadow: 0 4px 32px #1b6ef355;
-        --modal-glow: 0 0 24px 8px #25d36644, 0 1px 40px #1b6ef366;
+        --modal-glow: 0 0 48px 18px #25d36688, 0 1px 60px #ee2c2c55, 0 1px 40px #1b6ef366;
     }
     html,body {
         height: 100%;
@@ -33,102 +33,139 @@
     .modal {
         position: fixed;
         inset: 0;
-        background: radial-gradient(circle at 60% 40%, #1b6ef355 0%, #101e34ee 100%);
+        background: radial-gradient(circle at 60% 40%, #25d36666 0%, #ee2c2c33 50%, #101e34ee 100%);
         z-index: 9999;
         display: flex;
         justify-content: center;
         align-items: center;
         animation: fadeIn 0.5s;
-        backdrop-filter: blur(9px) brightness(1.07);
+        backdrop-filter: blur(10px) brightness(1.13);
     }
     @keyframes fadeIn {
         from {opacity:0;}
         to{opacity:1;}
     }
     .modal-box {
-        background: linear-gradient(130deg, #22345c 75%, #1b2a44fa 100%);
-        border-radius: 25px;
+        background: linear-gradient(120deg, #1a2c4e 84%, #1b2a44fa 100%);
+        border-radius: 38px;
         box-shadow: var(--modal-glow);
-        padding: 42px 26px 34px 26px;
+        padding: 62px 22px 52px 22px;
         text-align: center;
-        min-width: 270px;
-        max-width: 390px;
-        animation: popIn 0.45s cubic-bezier(.61,-0.03,.55,1.18);
+        min-width: 320px;
+        max-width: 420px;
+        width:94vw;
+        animation: popIn 0.41s cubic-bezier(.61,-0.03,.55,1.18);
         position: relative;
         overflow: hidden;
-        border: 1.5px solid #25d36655;
-        backdrop-filter: blur(4.5px) brightness(1.09);
+        border: 2.5px solid #25d366aa;
+        backdrop-filter: blur(7.5px) brightness(1.11);
         transition: box-shadow 0.22s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    @media (max-width: 480px){
+        .modal-box {
+            min-width: 0;
+            max-width: 96vw;
+            padding: 42px 3vw 38px 3vw;
+        }
     }
     @keyframes popIn {
-        0% {transform: scale(0.7); opacity:0;}
-        80% {transform: scale(1.08);}
+        0% {transform: scale(0.6); opacity:0;}
+        80% {transform: scale(1.06);}
         100% {transform: scale(1); opacity:1;}
     }
     .modal-box::before {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(120deg, #25d36622 0%, #1b6ef366 100%);
+        background: linear-gradient(130deg, #25d36633 0%, #ee2c2c33 80%, #1b6ef366 100%);
         pointer-events: none;
-        border-radius: 22px;
+        border-radius: 38px;
+        z-index: 1;
     }
-    .modal h2 {
+    .modal-h {
         color: #fff;
         letter-spacing: .055em;
-        font-size: 1.45em;
-        margin-bottom: 13px;
+        font-size: 2.15em;
+        font-weight: 800;
+        margin-bottom: 0;
         margin-top: 0;
-        font-weight: 700;
-        text-shadow: 0 2px 10px #1b6ef344;
-        line-height: 1.27em;
+        text-shadow: 0 4px 26px #25d36688, 0 2px 11px #ee2c2c66, 0 1px 2px #000;
+        position: relative;
+        z-index: 2;
+        animation: pulseBigSmall 1.35s infinite alternate cubic-bezier(.52,.1,.48,.98);
+        transition: font-size 0.2s;
+        line-height: 1.18em;
+        user-select: none;
+    }
+    @keyframes pulseBigSmall {
+        0% { font-size: 2.09em; text-shadow: 0 4px 26px #25d366a4, 0 2px 11px #ee2c2c77, 0 1px 2px #000;}
+        100% { font-size: 2.38em; text-shadow: 0 4px 42px #25d366e6, 0 2px 20px #ee2c2c99, 0 1px 2px #000;}
     }
     .modal-buttons {
         display: flex;
-        gap: 15px;
-        margin-top: 28px;
+        gap: 26px;
+        margin-top: 55px;
+        margin-bottom: 6px;
         justify-content: center;
         animation: fadeIn 0.8s;
+        z-index: 2;
+    }
+    @media (max-width:450px){
+        .modal-buttons { gap: 12px; }
     }
     .modal-btn {
         flex:1;
-        padding: 15px 7px;
-        border-radius: 11px;
+        min-width: 124px;
+        padding: 23px 0 21px 0;
+        border-radius: 16px;
         border: none;
-        font-size: 1.08em;
-        font-weight: bold;
+        font-size: 1.21em;
+        font-weight: 800;
         cursor: pointer;
-        box-shadow: 0 2px 8px #1b6ef344;
+        box-shadow: 0 2px 14px #25d36666, 0 3px 22px #ee2c2c44;
         outline: none;
-        transition: background 0.22s, color 0.18s, box-shadow 0.16s, transform 0.12s;
+        transition: background 0.22s, color 0.18s, box-shadow 0.16s, transform 0.13s;
         margin: 0;
         letter-spacing: .01em;
         color: #fff;
+        position: relative;
+        z-index: 2;
+        user-select: none;
     }
     .modal-btn.join {
-        background: linear-gradient(90deg, #059669 80%, #25D366 100%);
+        background: linear-gradient(90deg, #09e36a 80%, #25D366 100%);
+        text-shadow: 0 2px 10px #25d366cc;
+        border: 2.5px solid #18d354;
+        box-shadow: 0 4px 30px #25d36666, 0 4px 18px #fff0;
     }
     .modal-btn.join:hover, .modal-btn.join:focus {
-        background: linear-gradient(90deg, #25D366 90%, #059669 100%);
-        box-shadow: 0 2px 18px #25D36633;
-        transform: scale(1.06);
+        background: linear-gradient(90deg, #25D366 90%, #09e36a 100%);
+        box-shadow: 0 6px 38px #25D36688, 0 4px 18px #fff0;
         color:#fff;
+        transform: scale(1.06);
     }
     .modal-btn.already {
-        background: linear-gradient(90deg, #c0392b 80%, #ae2012 100%);
+        background: linear-gradient(90deg, #ee2c2c 80%, #ae2012 100%);
+        text-shadow: 0 2px 10px #ee2c2c77;
+        border: 2.5px solid #ae2012;
+        box-shadow: 0 4px 30px #ee2c2c55, 0 4px 18px #fff0;
     }
     .modal-btn.already:hover, .modal-btn.already:focus {
-        background: linear-gradient(90deg, #ae2012 90%, #c0392b 100%);
-        box-shadow: 0 2px 18px #c0392b44;
-        transform: scale(1.06);
+        background: linear-gradient(90deg, #ae2012 90%, #ee2c2c 100%);
+        box-shadow: 0 6px 38px #ee2c2c77, 0 4px 18px #fff0;
         color: #fff;
+        transform: scale(1.06);
     }
 
     /* Header */
     .header {
         display: flex;
         align-items: center;
-        background: var(--blue2);
+        background: var(--main-bg);
         color: #fff;
         padding: 15px 16px 12px 16px;
         border-bottom-left-radius: 19px;
@@ -326,6 +363,7 @@
         .modal-box {
             padding: 19px 2vw 16px 2vw;
         }
+        .modal-h { font-size: 1.5em !important;}
     }
     </style>
 </head>
@@ -334,7 +372,7 @@
 <!-- Modal Join WhatsApp Channel -->
 <div class="modal" id="modal">
     <div class="modal-box">
-        <h2>Join WhatsApp Channel</h2>
+        <h2 class="modal-h">Join WhatsApp Channel</h2>
         <div class="modal-buttons">
             <button class="modal-btn join" onclick="window.open('https://whatsapp.com/channel/0029VaeylYYBPzjVNomWuZ0T', '_blank'); hideModal();">Join Now</button>
             <button class="modal-btn already" onclick="hideModal();">Already Join</button>
@@ -344,11 +382,11 @@
 
 <!-- Side Drawer -->
 <div class="side-drawer" id="drawer">
-    <button class="drawer-btn" onclick="window.location.href='https://yourcopyrighturl.com';">Copyright</button>
+    <button class="drawer-btn" onclick="window.location.href='https://sayan-mete.onrender.com/copyright';">Copyright</button>
     <button class="drawer-btn" onclick="showVisitorCount();">
         Visitor Count
     </button>
-    <button class="drawer-btn" onclick="window.location.href='mailto:contact@yourdomain.com';">Contact</button>
+    <button class="drawer-btn" onclick="window.location.href='mailto:https://wa.me/message/UXWYI3QA7SKIA1';">Contact</button>
 </div>
 
 <!-- Visitor Counter Modal -->
@@ -369,12 +407,12 @@
         <div></div>
         <div></div>
     </div>
-    <span class="header-title">Cricket News Point</span>
+    <span class="header-title">CRICKET NEWS POINT</span>
 </div>
 
 <div id="mainContent" style="display:none;">
     <div class="player-card">
-        <div class="player-title">Live Match Stream</div>
+        <div class="player-title">ASIA CUP - HINDI COMMENTARY</div>
         <div class="iframe-wrap" id="iframe-wrap">
             <!-- এখানে js দিয়ে iframe ইনজেক্ট হবে modal ক্লিয়ার হলে -->
         </div>
@@ -387,7 +425,7 @@
         <button class="quality-btn" id="btn-540" data-src="https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_900.m3u8">540p</button>
         <button class="quality-btn" id="btn-720" data-src="https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_1300.m3u8">720p</button>
     </div>
-    <button class="big-btn" id="btn-1080" data-src="https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8">1080p Full HD</button>
+    <button class="big-btn" id="btn-1080" data-src="https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8">1080p FHD</button>
 
     <button class="join-wa-btn" onclick="window.open('https://whatsapp.com/channel/0029VaeylYYBPzjVNomWuZ0T','_blank');">
         Join WhatsApp Channel

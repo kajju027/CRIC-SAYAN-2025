@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fancode Vplayer- CNP official</title>
+<title>Fancode</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -139,7 +139,7 @@ const favBtn = document.getElementById('favBtn');
 
 // Set iframe source
 if(matchUrl){
-  playerFrame.src = `https://cricnewsspoints.pages.dev/player?url=${encodeURIComponent(matchUrl)}`;
+  playerFrame.src = `https://cricnewspoints.pages.dev/Fancode/player?url=${encodeURIComponent(matchUrl)}`;
 }
 
 // Load match details
@@ -188,11 +188,11 @@ async function loadMatchDetails(){
           text: 'Check out this match!',
           url: window.location.href
         });
-      } else alert('Share not supported on this browser & pleasecheckYourinternet speed । Ᏼʏ ꕶᴀʏᴀɴ ᴏᴀɪ ✏️ .');
+      } else alert('Share not supported on this browser.');
     };
 
     // Watch More
-    document.getElementById('watchMoreBtn').onclick = ()=> window.open('https://cricnewsspoints.pages.dev/','_blank');
+    document.getElementById('watchMoreBtn').onclick = ()=> window.open('https://allrounderlive.pages.dev/','_blank');
 
     // Join Now
     document.getElementById('joinNowBtn').onclick = ()=> window.open('https://t.me/+KOnGKXbcSBszNWY1','_blank');

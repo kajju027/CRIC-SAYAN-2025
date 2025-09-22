@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CRICKET NEWS POINT</title>
+<title>Allrounder</title>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FMP9REY96D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FMP9REY96D');
+</script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 body {
@@ -33,8 +42,8 @@ header.scrolled { background-color: rgba(0,0,0,0.6); }
 .poster-card {
   position: relative;
   flex: 0 0 auto;
-  width: 90vw;          /* ✅ take 90% of viewport width */
-  max-width: 600px;     /* ✅ prevent it from getting too big on desktops */
+  width: 90vw;          
+  max-width: 600px;     
   aspect-ratio: 16/9;
   border-radius: 12px;
   overflow: hidden;
@@ -453,6 +462,146 @@ header.scrolled { background-color: rgba(0,0,0,0.6); }
   object-fit:contain; z-index:2; pointer-events:none;
   box-shadow:0 12px 28px rgba(0,0,0,0.7);
 }
+/* Fancode Section Styles */
+#fancode-section {
+  margin-top: 10px; /* Reduced from 20px */
+}
+
+#fancode-section h2 {
+  color: #ff4500;
+  margin: 10px 0 5px 15px; /* Reduced top margin from 15px to 10px */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#fancode-section .scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 5px 0 15px 0; /* Reduced padding from 10px 0 20px 0 */
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#fancode-section .scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+#fancode-section .card {
+  position: relative;
+  min-width: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+/* First card touches left edge */
+#fancode-section .card:first-child {
+  margin-left: 0; /* Only first card has left margin */
+}
+
+#fancode-section .card:hover {
+  transform: scale(1.03);
+}
+
+#fancode-section .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+#fancode-section .card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Enhanced Live Badge with Pulse and Glow */
+#fancode-section .live-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ff0000;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 800; /* Extra bold */
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  animation: pulse 2s infinite, glow 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.9), 0 0 25px rgba(255, 50, 50, 0.6);
+  }
+}
+
+#fancode-section .premium-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #ffd700;
+  font-weight: 900;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  text-shadow: 0 0 6px #ffd700, 0 0 10px #ffae00;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+#fancode-section .view-all-card {
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff4500;
+  border-radius: 12px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+  margin-right: 15px; /* Right margin for the view all card */
+}
+
+#fancode-section .view-all-card:hover {
+  transform: scale(1.05);
+}
 .team-score { 
   font-size:0.75rem; 
   color:#ccc; 
@@ -578,7 +727,7 @@ header.scrolled { background-color: rgba(0,0,0,0.6); }
   <div class="shadow"></div>
 </div>
 <header>
-  <div class="logo"><img src="https://files.catbox.moe/8e0bg3.jpeg" alt="Logo"></div>
+  <div class="logo"><img src="https://allrounderlive.pages.dev/logo.png" alt="Logo"></div>
 </header>
 
 <div class="slider-wrapper">
@@ -600,20 +749,25 @@ header.scrolled { background-color: rgba(0,0,0,0.6); }
 </section>
 
 <section id="upcoming-section" style="margin-top:10px;">
-  <h2 style="font-size:1.2rem; font-weight:bold; color:#fff; margin-left:15px; margin-bottom:10px;">Upcoming Matches</h2>
+  <h2 style="font-size:1.2rem; font-weight:bold; color:#fff; margin-left:15px; margin-bottom:8px;">Upcoming Matches</h2>
   <div class="upcoming-carousel-container">
     <div class="upcoming-carousel" id="upcomingCarousel"></div>
   </div>
 </section>
 
-<section id="highlights-section" style="margin-top:10px;">
+<section id="fancode-section" style="margin-top:8px;">
+  <h2 style="font-size:1.2rem; font-weight:bold; color:#fff; margin-left:15px; margin-bottom:8px;">Fancode Live</h2>
+  <div class="scroll-container" id="fancodeContainer"></div>
+</section>
+
+<section id="highlights-section" style="margin-top:8px;">
   <h2 style="font-size:1.2rem; font-weight:bold; color:#fff; margin-left:15px; margin-bottom:8px;">Highlights</h2>
   <div class="scroll-container" id="highlightContainer"></div>
 </section>
 
 <footer id="footer">
   <div class="footer-content">
-    <p>&copy; 2025 SAYAN | All Rights Reserved.</p>
+    <p>&copy; 2025 Allrounder. All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -940,7 +1094,7 @@ fetch(upcomingApi)
   });
 async function loadHighlights() {
   const url = "https://proxy-d969.onrender.com/raw?url=" +
-    encodeURIComponent("https://acc-matchcentre.s3-ap-south-1.amazonaws.com/cpanel/client_14/2025/mediadoc/videos/1/videos.js?v=1756540254");
+    encodeURIComponent("https://acc-matchcentre.s3-ap-south-1.amazonaws.com/cpanel/client_14/2025/mediadoc/videos/1/videos.js?v=1758267404&callback=onVideos&_=1758303099872");
 
   try {
     const res = await fetch(url);
@@ -1053,6 +1207,73 @@ window.addEventListener('load', function() {
   // Add a small delay for better UX
   setTimeout(hideLoader, 1000);
 });
+// Fancode Section
+let fancodeShowingAll = false;
+
+async function loadFancodeMatches() {
+  try {
+    const res = await fetch('https://raw.githubusercontent.com/Odfinity/live-events/refs/heads/main/fancode/data.json');
+    const data = await res.json();
+    renderFancodeMatches(data.matches || []);
+  } catch(err) {
+    console.error("Error loading Fancode matches:", err);
+    document.getElementById('fancodeContainer').innerHTML = '<p style="color:#ccc; margin-left:15px;">Failed to load matches.</p>';
+  }
+}
+
+function renderFancodeMatches(matches) {
+  const container = document.getElementById('fancodeContainer');
+  container.innerHTML = '';
+  
+  const matchesToShow = fancodeShowingAll ? matches : matches.slice(0, 10);
+  
+  if (matchesToShow.length === 0) {
+    container.innerHTML = '<p style="color:#ccc; margin-left:15px;">No matches available at the moment.</p>';
+    return;
+  }
+  
+  matchesToShow.forEach((match, index) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    
+    const isLive = match.status && match.status.toLowerCase() === 'live';
+    const isPremium = match.premium || false;
+    
+    card.innerHTML = `
+      <img src="${match.src || 'https://via.placeholder.com/220x124/222/fff?text=No+Image'}" alt="${match.match_name || 'Match'}">
+      ${isLive ? '<div class="live-badge">LIVE</div>' : ''}
+      ${isPremium ? '<div class="premium-badge">PREMIUM</div>' : ''}
+      <div class="card-title">${match.match_name || 'Upcoming Match'}</div>
+    `;
+    
+    card.addEventListener('click', () => {
+      if (isLive && (match.dai_url || match.adfree_url)) {
+        const url = encodeURIComponent(match.dai_url || match.adfree_url);
+        window.location.href = `fancode/player.html?url=${url}&matchName=${encodeURIComponent(match.match_name)}`;
+      } else {
+        alert(match.startTime ? 
+          `Match starts at ${match.startTime} IST. Check back later.` : 
+          'Match details not available.');
+      }
+    });
+    
+    container.appendChild(card);
+  });
+  
+  if (matches.length > 10) {
+    const viewAll = document.createElement('div');
+    viewAll.className = 'view-all-card';
+    viewAll.textContent = fancodeShowingAll ? 'Show Less' : 'View All';
+    viewAll.addEventListener('click', () => {
+      fancodeShowingAll = !fancodeShowingAll;
+      renderFancodeMatches(matches);
+    });
+    container.appendChild(viewAll);
+  }
+}
+
+// Call this function after the page loads
+loadFancodeMatches();
 </script>
 
 </body>

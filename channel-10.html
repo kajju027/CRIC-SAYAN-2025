@@ -1,4 +1,5 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
   <title>CRICKET NEWS POINT- 10</title>
@@ -8,108 +9,30 @@
   <style>
     html, body { margin: 0; padding: 0; background: #000; height: 100%; }
     #video-container { width: 100%; height: 100%; position: relative; }
-    video { width: 100%; height: 100%; background: #000; }#overlay-image {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 5;
-}
-
-.shaka-controls-container {
-  z-index: 10 !important; /* Make sure controls are on top */
-}
-
-.shaka-play-button {
-  z-index: 15 !important;
-}
-
-/* PREMIUM MENU STYLES */
-.shaka-settings-menu {
-  background: rgba(30, 30, 30, 0.6) !important;
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-  padding: 8px 10px;
-  border: 1px solid rgba(255,255,255,0.15);
-  max-width: 220px;
-  animation: fadeIn 0.25s ease;
-}
-
-.shaka-settings-menu button {
-  display: block;
-  width: 100%;
-  background: rgba(255,255,255,0.04);
-  color: #fff;
-  border-radius: 8px;
-  padding: 6px 12px;
-  margin: 4px 0;
-  border: 2px solid rgba(255,255,255,0.35);
-  font-size: 13px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.shaka-settings-menu button::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, rgba(0,198,255,0.12), rgba(0,114,255,0.12));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 8px;
-  z-index: 0;
-}
-
-.shaka-settings-menu button:hover::before,
-.shaka-settings-menu button:focus::before {
-  opacity: 1;
-}
-
-.shaka-settings-menu button:hover,
-.shaka-settings-menu button:focus {
-  border-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
-  color: #fff;
-}
-#overlay-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: 5;
-}
-
-.shaka-settings-menu button[aria-checked="true"] {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: #fff;
-  border-color: #fff;
-  box-shadow: 0 0 12px rgba(0, 198, 255, 0.7);
-}
-
-.shaka-settings-menu button:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
+    video { width: 100%; height: 100%; background: #000; }
+    #overlay-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 5;
+    }
+    .shaka-controls-container { z-index: 10 !important; }
+    .shaka-play-button { z-index: 15 !important; }
   </style>
 </head>
 <body>
   <div id="video-container">
-    <video id="video" class="shaka-video" autoplay></video>
-    <img id="overlay-image" src="https://files.catbox.moe/viy3ye.jpeg" alt="willowsports-hrb">
+    <video id="video" class="shaka-video" autoplay muted></video>
+    <img id="overlay-image" src="https://files.catbox.moe/7vkbf7.jpeg" alt="willowsports-hrb">
     <div class="shaka-controls-container" shaka-controls></div>
-  </div>  <script>
+  </div>  
+
+  <script>
     document.addEventListener('DOMContentLoaded', async () => {
       const manifestUri = 'https://ev-fast-mpd.starzplayarabia.com/live/eds/CricLife2/DASH/CricLife2.mpd';
       const video = document.getElementById('video');
@@ -118,13 +41,19 @@
 
       const player = new shaka.Player(video);
       const ui = new shaka.ui.Overlay(player, container, video);
-      const controls = ui.getControls();
 
+      // ডিফল্ট কনফিগারেশন
       player.configure({
         drm: {
           clearKeys: {
             '48bef83b4c6a3c5189b01b0126210da4': 'bd085230b7b09e50954fe0af111a8a9f'
           }
+        },
+        abr: {
+          enabled: false // auto-bitrate বন্ধ
+        },
+        restrictions: {
+          maxHeight: 360 // ডিফল্ট 360p
         }
       });
 
@@ -142,6 +71,7 @@
       try {
         await player.load(manifestUri);
         console.log('The video has now been loaded!');
+        video.play(); // নিশ্চিত করতে অটোমেটিক প্লে
       } catch (e) {
         console.error('Error loading video', e);
       }
@@ -150,5 +80,6 @@
         overlayImage.remove();
       });
     });
-  </script></body>
+  </script>
+</body>
 </html>

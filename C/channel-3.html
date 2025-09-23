@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SONY SPORTS TEN 3 HD</title>
+
+  <!-- Plyr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.css" />
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      max-height: 100vh;
+    }
+
+    /* Plyr color change */
+    :root {
+      --plyr-color-main: #FFD700; /* হলুদ রঙ */
+    }
+
+    /* Popup Modal */
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+    .popup-box h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #333;
+    }
+    .popup-buttons {
+      display: flex;
+      justify-content: space-around;
+    }
+    .popup-buttons button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-join {
+      background: #28a745;
+      color: #fff;
+    }
+    .btn-join:hover {
+      background: #218838;
+    }
+    .btn-already {
+      background: #dc3545;
+      color: #fff;
+    }
+    .btn-already:hover {
+      background: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video Player -->
+  <video id="player" controls playsinline></video>
+
+  <!-- Popup Modal -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <h2>Join my WhatsApp Channel</h2>
+      <div class="popup-buttons">
+        <button class="btn-join" onclick="joinChannel()">Join Now</button>
+        <button class="btn-already" onclick="alreadyJoined()">Already Joined</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plyr + HLS -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.polyfilled.js"></script>
+
+  <script>
+    const video = document.getElementById('player');
+    const source = "https://live.dinesh29.com.np/stream/jiotvplus/sonyten3hdhindi/master.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls({
+        autoStartLoad: true,
+        startLevel: 1, // default quality (360p if available)
+      });
+      hls.loadSource(source);
+      hls.attachMedia(video);
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = source;
+    }
+
+    const player = new Plyr(video, {
+      quality: {
+        default: 360,
+        options: [144, 240, 360, 480, 720, 1080],
+      },
+      controls: [
+        'play-large', 'play', 'progress', 'current-time',
+        'mute', 'volume', 'captions', 'settings',
+        'pip', 'airplay', 'fullscreen'
+      ]
+    });
+
+    // Popup logic
+    const popup = document.getElementById("popup");
+
+    function joinChannel() {
+      window.open("https://whatsapp.com/channel/0029VaeylYYBPzjVNomWuZ0T", "_blank");
+      closePopup();
+    }
+
+    function alreadyJoined() {
+      closePopup();
+      // Show popup again after 3 minutes (180000 ms)
+      setTimeout(() => {
+        popup.style.display = "flex";
+      }, 180000);
+    }
+
+    function closePopup() {
+      popup.style.display = "none";
+    }
+  </script>
+</body>
+</html>nu

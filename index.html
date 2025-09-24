@@ -1249,7 +1249,7 @@ function renderFancodeMatches(matches) {
     card.addEventListener('click', () => {
       if (isLive && (match.dai_url || match.adfree_url)) {
         const url = encodeURIComponent(match.dai_url || match.adfree_url);
-        window.location.href = `https://sports.sonuxcricket.workers.dev/ios=${url}&matchName=${encodeURIComponent}`;
+        window.location.href = `https://sports.sonuxcricket.workers.dev/ios=${url}`;
       } else {
         alert(match.startTime ? 
           `Match starts at ${match.startTime} IST. Check back later.` : 

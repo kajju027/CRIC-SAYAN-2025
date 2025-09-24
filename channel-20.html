@@ -157,8 +157,8 @@
           qualitySelector.appendChild(option);
         });
 
-        // Default to 396p if available
-        let defaultTrackIndex = tracks.findIndex(t => t.height === 396);
+        // Default to 360p if available
+        let defaultTrackIndex = tracks.findIndex(t => t.height === 360);
         if (defaultTrackIndex === -1) {
           defaultTrackIndex = 0;
         }

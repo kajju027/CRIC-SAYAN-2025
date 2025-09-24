@@ -142,12 +142,12 @@
       player.configure({
         drm: {
           clearKeys: {
-            "1779c27b9d077a3ba0c9cc1bb9a94b9f": "cc5cf3b7928fb9e0a1ee6a8b566f0a8e"
+            "8268467a7a974698b18c9e63b13f73a4": "6affb3ad6e781bc4afafad402e1d4510"
           }
         }
       });
 
-      player.load("https://a201aivottlinear-a.akamaihd.net/OTTB/lhr-nitro/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd").then(function() {
+      player.load("https://sundirectgo-live.pc.cdn.bitgravity.com/hd21/dth.mpd").then(function() {
         // Get available video tracks
         const tracks = player.getVariantTracks().filter(t => t.videoId !== null);
         tracks.forEach((t, i) => {

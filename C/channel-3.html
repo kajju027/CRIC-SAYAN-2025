@@ -1,153 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SONY SPORTS TEN 3 HD</title>
-
-  <!-- Plyr CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.css" />
-
+  <meta charset="utf-8">
+  <title>CRICKET NEWS POINT- c3</title>
+  <script src="https://cdn.jsdelivr.net/npm/shaka-player@latest/dist/shaka-player.ui.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shaka-player@latest/dist/controls.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    video {
+    html, body { margin: 0; padding: 0; background: #000; height: 100%; }
+    #video-container { width: 100%; height: 100%; position: relative; }
+    video { width: 100%; height: 100%; background: #000; }
+    #overlay-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: 100%;
       height: auto;
-      max-height: 100vh;
+      aspect-ratio: 16 / 9;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 5;
     }
-
-    /* Plyr color change */
-    :root {
-      --plyr-color-main: #FFD700; /* হলুদ রঙ */
-    }
-
-    /* Popup Modal */
-    .popup-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .popup-box {
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    }
-    .popup-box h2 {
-      margin-bottom: 20px;
-      font-size: 20px;
-      color: #333;
-    }
-    .popup-buttons {
-      display: flex;
-      justify-content: space-around;
-    }
-    .popup-buttons button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn-join {
-      background: #28a745;
-      color: #fff;
-    }
-    .btn-join:hover {
-      background: #218838;
-    }
-    .btn-already {
-      background: #dc3545;
-      color: #fff;
-    }
-    .btn-already:hover {
-      background: #c82333;
-    }
+    .shaka-controls-container { z-index: 10 !important; }
+    .shaka-play-button { z-index: 15 !important; }
   </style>
 </head>
 <body>
-
-  <!-- Video Player -->
-  <video id="player" controls playsinline></video>
-
-  <!-- Popup Modal -->
-  <div class="popup-overlay" id="popup">
-    <div class="popup-box">
-      <h2>Join my WhatsApp Channel</h2>
-      <div class="popup-buttons">
-        <button class="btn-join" onclick="joinChannel()">Join Now</button>
-        <button class="btn-already" onclick="alreadyJoined()">Already Joined</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Plyr + HLS -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.polyfilled.js"></script>
+  <div id="video-container">
+    <video id="video" class="shaka-video" autoplay muted></video>
+    <img id="overlay-image" src="https://files.catbox.moe/7vkbf7.jpeg" alt="willowsports-hrb">
+    <div class="shaka-controls-container" shaka-controls></div>
+  </div>  
 
   <script>
-    const video = document.getElementById('player');
-    const source = "https://in-mc-fdlive.fancode.com/mumbai/136745_hindi_hls_3d0880779651715ta-di_h264/index.m3u8";
+    document.addEventListener('DOMContentLoaded', async () => {
+      const manifestUri = 'https://ev-fast-mpd.starzplayarabia.com/live/eds/Criclife_3/DASH/Criclife_3.mpd';
+      const video = document.getElementById('video');
+      const overlayImage = document.getElementById('overlay-image');
+      const container = document.getElementById('video-container');
 
-    if (Hls.isSupported()) {
-      const hls = new Hls({
-        autoStartLoad: true,
-        startLevel: 1, // default quality (360p if available)
+      const player = new shaka.Player(video);
+      const ui = new shaka.ui.Overlay(player, container, video);
+
+      // ডিফল্ট কনফিগারেশন
+      player.configure({
+        drm: {
+          clearKeys: {
+            '4e8b5ddac5332a4e66c002b4c0f22322': 'd06de29b0eacb81ac6e3f325849047e8'
+          }
+        },
+        abr: {
+          enabled: false // auto-bitrate বন্ধ
+        },
+        restrictions: {
+          maxHeight: 360 // ডিফল্ট 360p
+        }
       });
-      hls.loadSource(source);
-      hls.attachMedia(video);
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = source;
-    }
 
-    const player = new Plyr(video, {
-      quality: {
-        default: 360,
-        options: [144, 240, 360, 480, 720, 1080],
-      },
-      controls: [
-        'play-large', 'play', 'progress', 'current-time',
-        'mute', 'volume', 'captions', 'settings',
-        'pip', 'airplay', 'fullscreen'
-      ]
+      ui.configure({
+        controlPanelElements: [
+          'play_pause', 'rewind', 'fast_forward', 'time_and_duration',
+          'spacer', 'mute', 'volume', 'captions', 'quality', 'playback_rate', 
+          'cast', 'loop', 'fullscreen'
+        ],
+        enableQualitySelection: true
+      });
+
+      player.addEventListener('error', (e) => console.error('Error code', e.detail.code, e.detail));
+
+      try {
+        await player.load(manifestUri);
+        console.log('The video has now been loaded!');
+        video.play(); // নিশ্চিত করতে অটোমেটিক প্লে
+      } catch (e) {
+        console.error('Error loading video', e);
+      }
+
+      video.addEventListener('playing', () => {
+        overlayImage.remove();
+      });
     });
-
-    // Popup logic
-    const popup = document.getElementById("popup");
-
-    function joinChannel() {
-      window.open("https://whatsapp.com/channel/0029VaeylYYBPzjVNomWuZ0T", "_blank");
-      closePopup();
-    }
-
-    function alreadyJoined() {
-      closePopup();
-      // Show popup again after 3 minutes (180000 ms)
-      setTimeout(() => {
-        popup.style.display = "flex";
-      }, 180000);
-    }
-
-    function closePopup() {
-      popup.style.display = "none";
-    }
   </script>
 </body>
-</html>nu
+</html>

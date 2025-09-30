@@ -1,4 +1,12 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+
+
+
+<html lang="bn">
+
+
+
+
 
 
 
@@ -6,11 +14,11 @@
 
 
 
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
 
@@ -18,7 +26,7 @@
 
 
 
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
 
 
@@ -30,15 +38,59 @@
 
 
 
-    body {
+    /* ---------- base ---------- */
 
 
 
-      margin: 0; padding: 0;
+    :root {
 
 
 
-      background: #0a0a0a;
+      --bg: #0a0a0a;
+
+
+
+      --panel: #1a1a1a;
+
+
+
+      --muted: #bbb;
+
+
+
+      --accent: #28a745;
+
+
+
+      --danger: #dc3545;
+
+
+
+    }
+
+
+
+
+
+
+
+    html, body {
+
+
+
+      height: 100%;
+
+
+
+      margin: 0;
+
+
+
+      padding: 0;
+
+
+
+      background: var(--bg);
 
 
 
@@ -54,495 +106,667 @@
 
 
 
-    }header {
+    }
 
 
 
-  position: fixed; top: 0; left: 0; right: 0;
 
 
 
-  height: 70px;
 
+    /* ---------- header / main layout ---------- */
 
 
-  background: rgba(10, 10, 10, 0.95);
 
+    header {
 
 
-  display: flex; align-items: center; justify-content: center;
 
+      position: fixed; top: 0; left: 0; right: 0;
 
 
-  border-bottom: 1px solid rgba(255,255,255,0.1);
 
+      height: 70px;
 
 
-  z-index: 9999;
 
+      background: rgba(10, 10, 10, 0.95);
 
 
-}
 
+      display: flex; align-items: center; justify-content: center;
 
 
-header img { height: 85%; }
 
+      border-bottom: 1px solid rgba(255,255,255,0.06);
 
 
 
+      z-index: 10;
 
 
 
-.video-container {
+    }
 
 
 
-  width: 100vw; aspect-ratio: 16/9;
+    header img { height: 85%; }
 
 
 
-  background: #000; margin-top: 70px;
 
 
 
-}
 
+    .main-wrapper { margin-top: 70px; } /* content area sits under header */
 
 
-.video-container iframe {
 
 
 
-  width: 100%; height: 100%; border: none;
 
 
+    .video-container {
 
-}
 
 
+      width: 100vw; aspect-ratio: 16/9;
 
 
 
+      background: #000;
 
 
-/* Tabs */
 
+    }
 
 
-.tabs {
 
+    .video-container iframe { width: 100%; height: 100%; border: none; }
 
 
-  display: flex;
 
 
 
-  justify-content: space-around;
 
 
+    .tabs {
 
-  background: #111;
 
 
+      display: flex;
 
-  border-top: 1px solid rgba(255,255,255,0.1);
 
 
+      justify-content: space-around;
 
-  border-bottom: 1px solid rgba(255,255,255,0.1);
 
 
+      background: #111;
 
-}
 
 
+      border-top: 1px solid rgba(255,255,255,0.06);
 
-.tab-button {
 
 
+      border-bottom: 1px solid rgba(255,255,255,0.06);
 
-  flex: 1; padding: 14px 0;
 
 
+      z-index: 1;
 
-  color: #bbb; background: none; border: none;
 
 
+    }
 
-  font-size: 15px; cursor: pointer;
 
 
+    .tab-button {
 
-}
 
 
+      flex: 1; padding: 14px 0;
 
-.tab-button.active { color: #1db954; font-weight: bold; }
 
 
+      color: #bbb; background: none; border: none;
 
 
 
+      font-size: 15px; cursor: pointer;
 
 
-.tab-content { display: none; }
 
+    }
 
 
-.tab-content.active { display: block; }
 
+    .tab-button.active { color: #1db954; font-weight: bold; }
 
 
-.tab-content iframe {
 
 
 
-  width: 100%; height: 600px; border: none;
 
 
+    .tab-content { display: none; }
 
-}
 
 
+    .tab-content.active { display: block; }
 
 
 
+    .tab-content iframe { width: 100%; height: 600px; border: none; }
 
 
-/* Sidebar */
 
 
 
-.sidebar {
 
 
+    /* Sidebar */
 
-  position: fixed; top: 0; left: -260px;
 
 
+    .sidebar {
 
-  width: 240px; height: 100%;
 
 
+      position: fixed; top: 0; left: -260px;
 
-  background: #111; z-index: 10001;
 
 
+      width: 240px; height: 100%;
 
-  transition: left 0.3s ease;
 
 
+      background: #111; z-index: 12;
 
-  padding-top: 70px;
 
 
+      transition: left 0.28s ease;
 
-  border-right: 1px solid rgba(255,255,255,0.1);
 
 
+      padding-top: 70px;
 
-}
 
 
+      border-right: 1px solid rgba(255,255,255,0.06);
 
-.sidebar.open { left: 0; }
 
 
+    }
 
-.sidebar a {
 
 
+    .sidebar.open { left: 0; }
 
-  display: block; padding: 12px 18px;
 
 
+    .sidebar a {
 
-  color: #fff; text-decoration: none;
 
 
+      display: block; padding: 12px 18px;
 
-  border-bottom: 1px solid rgba(255,255,255,0.1);
 
 
+      color: #fff; text-decoration: none;
 
-  font-size: 15px;
 
 
+      border-bottom: 1px solid rgba(255,255,255,0.06);
 
-}
 
 
+      font-size: 15px;
 
-.sidebar a:hover { background: rgba(255,255,255,0.1); }
 
 
+    }
 
 
 
+    .menu-header { font-size: 18px; font-weight: bold; text-align:center; padding:12px 0; }
 
 
-.menu-header {
 
 
 
-  font-size: 18px; font-weight: bold;
 
 
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 11; display: none; }
 
-  text-align: center; padding: 12px 0;
 
 
+    .overlay.show { display: block; }
 
-  border-bottom: 1px solid rgba(255,255,255,0.2);
 
 
 
-  background: rgba(255,255,255,0.05);
 
 
 
-}
+    .menu-icon {
 
 
 
+      position: absolute; left: 16px; color: #fff;
 
 
 
+      font-size: 30px; cursor: pointer;
 
-.overlay {
 
 
+    }
 
-  position: fixed; top: 0; left: 0;
 
 
 
-  width: 100%; height: 100%;
 
 
 
-  background: rgba(0,0,0,0.4);
+    /* visitor */
 
 
 
-  z-index: 10000; display: none;
+    .visitor-box { display: none; padding: 12px; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
 
 
 
-}
+    .visitor-box img { width: 120px; }
 
 
 
-.overlay.show { display: block; }
 
 
 
 
+    /* ---------- POPUP OVERLAY + ANIMATION BACKGROUND ---------- */
 
 
 
-.menu-icon {
+    /* Fullscreen overlay that covers everything and shows animated black background */
 
 
 
-  position: absolute; left: 16px; color: #fff;
+    .popup-overlay {
 
 
 
-  font-size: 30px; cursor: pointer;
+      position: fixed;
 
 
 
-}
+      inset: 0;
 
 
 
+      display: flex;
 
 
 
+      align-items: center;
 
-/* Popup */
 
 
+      justify-content: center;
 
-.popup-overlay {
 
 
+      z-index: 1000; /* highest */
 
-  position: fixed; top: 0; left: 0;
 
 
+      /* We'll layer an animated background behind the popup box */
 
-  width: 100%; height: 100%;
 
 
+      background: rgba(0,0,0,0.85);
 
-  background: rgba(0, 0, 0, 0.6);
 
 
+      overflow: hidden;
 
-  display: flex; align-items: center; justify-content: center;
 
 
+    }
 
-  z-index: 10002; display: none;
 
 
 
-}
 
 
 
-.popup-box {
+    /* animated black pattern (subtle moving gradient) */
 
 
 
-  width: 320px;
+    .popup-overlay::before {
 
 
 
-  background: #1a1a1a;
+      content: "";
 
 
 
-  border-radius: 12px;
+      position: absolute;
 
 
 
-  padding: 20px;
+      inset: 0;
 
 
 
-  text-align: center;
+      background:
 
 
 
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        radial-gradient(1200px 600px at 10% 20%, rgba(20,20,20,0.9), transparent 20%),
 
 
 
-}
+        radial-gradient(900px 500px at 80% 80%, rgba(30,30,30,0.9), transparent 25%),
 
 
 
-.popup-header {
+        linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
 
 
 
-  font-size: 20px; font-weight: bold;
+      z-index: 0;
 
 
 
-  margin-bottom: 8px;
+      animation: bgMove 12s linear infinite;
 
 
 
-  color: #fff;
+      mix-blend-mode: normal;
 
 
 
-}
+    }
 
 
 
-.popup-subtitle {
 
 
 
-  font-size: 14px; color: #bbb;
 
+    @keyframes bgMove {
 
 
-  margin-bottom: 16px;
 
+      0% { transform: translate3d(0,0,0) scale(1); filter: hue-rotate(0deg); }
 
 
-}
 
+      50% { transform: translate3d(-6%,4%,0) scale(1.02); filter: hue-rotate(6deg) blur(0.4px); }
 
 
-.popup-btn {
 
+      100% { transform: translate3d(0,0,0) scale(1); filter: hue-rotate(0deg); }
 
 
-  display: inline-block;
 
+    }
 
 
-  width: 45%; margin: 5px;
 
 
 
-  padding: 10px;
 
 
+    /* popup box (center) */
 
-  border: none; border-radius: 6px;
 
 
+    .popup-box {
 
-  font-size: 15px; font-weight: bold;
 
 
+      position: relative;
 
-  cursor: pointer; color: #fff;
 
 
+      z-index: 2;
 
-}
 
 
+      width: min(520px, 92%);
 
-.join-btn { background: #28a745; }
 
 
+      background: linear-gradient(180deg, rgba(30,30,30,0.98), rgba(20,20,20,0.98));
 
-.join-btn:hover { background: #22cc55; }
 
 
+      border-radius: 14px;
 
-.already-btn { background: #dc3545; }
 
 
+      padding: 28px;
 
-.already-btn:hover { background: #ff4455; }
 
 
+      text-align: center;
 
 
 
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
 
 
-/* Visitor counter box */
 
+      border: 1px solid rgba(255,255,255,0.03);
 
 
-.visitor-box {
 
+      transform-origin: center;
 
 
-  display: none;
 
+      animation: popupIn 260ms ease;
 
 
-  padding: 12px; text-align: center;
 
+    }
 
 
-  border-top: 1px solid rgba(255,255,255,0.1);
 
 
 
-}
 
 
+    @keyframes popupIn {
 
-.visitor-box img { width: 120px; }
 
 
+      from { transform: translateY(-14px) scale(0.98); opacity: 0; }
 
 
+
+      to { transform: translateY(0) scale(1); opacity: 1; }
+
+
+
+    }
+
+
+
+
+
+
+
+    .popup-header { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #fff; }
+
+
+
+    .popup-subtitle { font-size: 15px; color: var(--muted); margin-bottom: 18px; }
+
+
+
+
+
+
+
+    .popup-actions {
+
+
+
+      display: flex;
+
+
+
+      gap: 12px;
+
+
+
+      justify-content: center;
+
+
+
+      margin-top: 6px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .popup-btn {
+
+
+
+      flex: 0 0 48%;
+
+
+
+      padding: 12px 14px;
+
+
+
+      border-radius: 8px;
+
+
+
+      border: none;
+
+
+
+      font-size: 15px;
+
+
+
+      font-weight: 700;
+
+
+
+      cursor: pointer;
+
+
+
+      color: #fff;
+
+
+
+      transition: transform .12s ease;
+
+
+
+    }
+
+
+
+    .popup-btn:active { transform: scale(0.99); }
+
+
+
+
+
+
+
+    .already-btn { background: var(--danger); }
+
+
+
+    .already-btn:hover { filter: brightness(1.05); }
+
+
+
+
+
+
+
+    .join-btn { background: var(--accent); text-decoration: none; display: inline-block; text-align:center; line-height:1; }
+
+
+
+    .join-btn:hover { filter: brightness(1.03); }
+
+
+
+
+
+
+
+    /* smaller note under buttons */
+
+
+
+    .popup-note { margin-top: 12px; font-size: 13px; color: #c9c9c9; }
+
+
+
+
+
+
+
+    /* ---------- when overlay active, prevent scroll on body ---------- */
+
+
+
+    body.no-scroll { overflow: hidden; }
+
+
+
+
+
+
+
+    /* small screens adjustments */
+
+
+
+    @media (max-width: 420px) {
+
+
+
+      .popup-box { padding: 20px; border-radius: 12px; }
+
+
+
+      .popup-header { font-size: 18px; }
+
+
+
+      .popup-subtitle { font-size: 13px; }
+
+
+
+      .popup-btn { font-size: 14px; padding: 10px; }
+
+
+
+    }
 
 
 
@@ -554,31 +778,67 @@ header img { height: 85%; }
 
 
 
+
+
+
+
 <body>
 
 
 
-  <!-- Popup -->
+  <!-- POPUP OVERLAY (shown on page open) -->
 
 
 
-  <div class="popup-overlay" id="popup">
+  <div class="popup-overlay" id="popupOverlay" aria-hidden="false" role="dialog" style="display:flex;">
 
 
 
-    <div class="popup-box">
+    <div class="popup-box" role="document" aria-labelledby="popupTitle" aria-describedby="popupDesc">
 
 
 
-      <div class="popup-header">Support us</div>
+      <div class="popup-header" id="popupTitle">Support us</div>
 
 
 
-      <div class="popup-subtitle">
+      <div class="popup-subtitle" id="popupDesc">Join our WhatsApp Channel to support the stream</div>
 
 
 
-        join our WhatsApp Channel
+
+
+
+
+      <!-- Buttons: Already (left) — Join (right) -->
+
+
+
+      <div class="popup-actions">
+
+
+
+        <button class="popup-btn already-btn" id="alreadyBtn" aria-pressed="false">Maybe Later </button>
+
+
+
+
+
+
+
+        <!-- Join as link (on right) -->
+
+
+
+        <a href="https://whatsapp.com/channel/0029VaeylYYBPzjVNomWuZ0T" target="_blank" rel="noopener noreferrer" style="width:70%;">
+
+
+
+          <button class="popup-btn join-btn" id="joinBtn">ㅤㅤㅤㅤJoin Now          ㅤ  ㅤ</button>
+
+
+
+        </a>
 
 
 
@@ -586,79 +846,11 @@ header img { height: 85%; }
 
 
 
-      <a href="https://whatsapp.com/channel/0029VaeylYYBPzjVNomWuZ0T" target="_blank">
 
 
 
-        <button class="popup-btn join-btn">Join Now</button>
 
-
-
-      </a>
-
-
-
-      <button class="popup-btn already-btn" id="alreadyBtn">Already Joined</button>
-
-
-
-    </div>
-
-
-
-  </div>  <header>
-
-
-
-    <span class="material-icons menu-icon" onclick="toggleSidebar()">menu</span>
-
-
-
-    <img src="https://files.catbox.moe/g2tdt0.jpeg" alt="Logo">
-
-
-
-  </header>  <div class="video-container">
-
-
-
-    <iframe src="https://alpha-server-two.vercel.app/"
-
-
-
-      allowfullscreen allow="autoplay; encrypted-media"></iframe>
-
-
-
-  </div>  <!-- Sidebar -->  <div class="sidebar" id="sidebar">
-
-
-
-    <div class="menu-header">MENU</div>
-
-
-
-    <a href="https://whatsapp.com/channel/0029VaeylYYBPzjVNomWuZ0T" target="_blank">Join WhatsApp</a>
-
-
-
-    <a href="https://www.instagram.com/sonu__7xyz?igsh=MTdlNXdmc2JvMHJwNA==" target="_blank">Contact Us</a>
-
-
-
-    <a href="https://sayan-mete.onrender.com/copyright" target="_blank">Copyright</a>
-
-
-
-    <a href="javascript:void(0)" onclick="toggleVisitor()">Visitor Count</a>
-
-
-
-    <div class="visitor-box" id="visitorBox">
-
-
-
-      <img src="https://www.counter12.com/img-9205Yd3W54Z3y43Z-5.gif" alt="Visitor Count"/>
+      <div class="popup-note">Already Joined button needs <strong>two clicks</strong> to close the popup.</div>
 
 
 
@@ -670,59 +862,183 @@ header img { height: 85%; }
 
 
 
-  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>  <!-- Tabs -->  <div class="tabs">
 
 
 
-    <button class="tab-button active" onclick="switchTab('scoreboard')">
+
+  <!-- MAIN SITE CONTENT (still loads but beneath overlay) -->
 
 
 
-      <span class="material-icons">leaderboard</span>
+  <header>
 
 
 
-      <span> </span>
+    <span class="material-icons menu-icon" onclick="toggleSidebar()">menu</span>
 
 
 
-    </button>
+    <img src="https://files.catbox.moe/g2tdt0.jpeg" alt="Logo">
 
 
 
-    <button class="tab-button" onclick="switchTab('highlights')">
+  </header>
 
 
 
-      <span class="material-icons">movie</span>
 
 
 
-      <span> </span>
+
+  <div id="mainContent" class="main-wrapper" aria-hidden="true">
 
 
 
-    </button>
+    <div class="video-container">
 
 
 
-  </div>  <!-- Scoreboard -->  <div id="scoreboard" class="tab-content active">
+      <iframe src="https://alpha-server-two.vercel.app/" allowfullscreen allow="autoplay; encrypted-media"></iframe>
 
 
 
-    <iframe src="https://ads-cnp.vercel.app/"></iframe>
+    </div>
 
 
 
-  </div>  <!-- Highlights -->  <div id="highlights" class="tab-content">
 
 
 
-    <iframe src="https://alpha-server-zero.vercel.app/ "></iframe>
+
+    <!-- Sidebar -->
 
 
 
-  </div>  <script>
+    <div class="sidebar" id="sidebar">
+
+
+
+      <div class="menu-header">MENU</div>
+
+
+
+      <a href="https://whatsapp.com/channel/0029VaeylYYBPzjVNomWuZ0T" target="_blank">Join WhatsApp</a>
+
+
+
+      <a href="https://www.instagram.com/sonu__7xyz?" target="_blank">Contact Us</a>
+
+
+
+      <a href="https://sayan-mete.onrender.com/copyright" target="_blank">Copyright</a>
+
+
+
+      <a href="javascript:void(0)" onclick="toggleVisitor()">Visitor Count</a>
+
+
+
+      <div class="visitor-box" id="visitorBox">
+
+
+
+        <img src="https://www.counter12.com/img-9205Yd3W54Z3y43Z-5.gif" alt="Visitor Count" />
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="tabs">
+
+
+
+      <button class="tab-button active" onclick="switchTab('scoreboard')">
+
+
+
+        <span class="material-icons">leaderboard</span>
+
+
+
+      </button>
+
+
+
+      <button class="tab-button" onclick="switchTab('highlights')">
+
+
+
+        <span class="material-icons">movie</span>
+
+
+
+      </button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div id="scoreboard" class="tab-content active">
+
+
+
+      <iframe src="https://ads-cnp.vercel.app/"></iframe>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div id="highlights" class="tab-content">
+
+
+
+      <iframe src=" cnp "></iframe>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+
+
+
+
+
+
+  <script>
 
 
 
@@ -790,7 +1106,7 @@ header img { height: 85%; }
 
 
 
-      document.querySelector(`.tab-button[onclick*=\"${tabId}\"]`).classList.add('active');
+      document.querySelector(`.tab-button[onclick*="${tabId}"]`).classList.add('active');
 
 
 
@@ -806,35 +1122,31 @@ header img { height: 85%; }
 
 
 
-    /*
+    // ---------- POPUP BEHAVIOUR ----------
 
 
 
-      Popup behaviour:
+    document.addEventListener('DOMContentLoaded', function () {
 
 
 
-      1) "Already Joined" button now requires TWO clicks to close the popup.
-
-
-
-      2) Popup appears initially after 2 seconds, and will reappear every 4 minutes while the user stays on the page.
-
-
-
-    */
-
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-
-
-
-      const popup = document.getElementById('popup');
+      const overlay = document.getElementById('popupOverlay');
 
 
 
       const alreadyBtn = document.getElementById('alreadyBtn');
+
+
+
+      const joinBtn = document.getElementById('joinBtn');
+
+
+
+      const mainContent = document.getElementById('mainContent');
+
+
+
+
 
 
 
@@ -846,7 +1158,7 @@ header img { height: 85%; }
 
 
 
-      // Show popup
+      // Show popup immediately on page open
 
 
 
@@ -854,19 +1166,31 @@ header img { height: 85%; }
 
 
 
-        if (!popup) return;
+        overlay.style.display = 'flex';
 
 
 
-        if (popup.style.display === 'flex') return;
+        overlay.setAttribute('aria-hidden', 'false');
 
 
 
-        popup.style.display = 'flex';
+        // prevent body scroll while popup visible
 
 
 
-        alreadyClickCount = 0; // reset click count when popup reopens
+        document.documentElement.classList.add('no-scroll');
+
+
+
+        document.body.classList.add('no-scroll');
+
+
+
+        // mark main content aria-hidden true while popup active
+
+
+
+        if (mainContent) mainContent.setAttribute('aria-hidden', 'true');
 
 
 
@@ -878,11 +1202,59 @@ header img { height: 85%; }
 
 
 
-      // Close popup after two clicks
+      function closePopup() {
 
 
 
-      function tryClosePopup() {
+        overlay.style.display = 'none';
+
+
+
+        overlay.setAttribute('aria-hidden', 'true');
+
+
+
+        document.documentElement.classList.remove('no-scroll');
+
+
+
+        document.body.classList.remove('no-scroll');
+
+
+
+        if (mainContent) mainContent.setAttribute('aria-hidden', 'false');
+
+
+
+        // optional: reset click count
+
+
+
+        alreadyClickCount = 0;
+
+
+
+        // record last closed time to avoid immediate re-show if you want - optional:
+
+
+
+        try { sessionStorage.setItem('popupLastClosed', Date.now().toString()); } catch (e) {}
+
+
+
+      }
+
+
+
+
+
+
+
+      // Already Joined logic: Requires TWO clicks
+
+
+
+      alreadyBtn.addEventListener('click', function (e) {
 
 
 
@@ -890,15 +1262,31 @@ header img { height: 85%; }
 
 
 
+        alreadyBtn.setAttribute('aria-pressed', 'true');
+
+
+
+        // small visual feedback (shake or scale) could be added; keeping simple
+
+
+
         if (alreadyClickCount >= 2) {
 
 
 
-          popup.style.display = 'none';
+          closePopup();
 
 
 
-          try { sessionStorage.setItem('popupLastClosed', Date.now().toString()); } catch(e) {}
+        } else {
+
+
+
+          // brief feedback: flash the button to indicate "one click done"
+
+
+
+          alreadyBtn.animate([{ transform: 'scale(1)' }, { transform: 'scale(0.98)' }, { transform: 'scale(1)' }], { duration: 140 });
 
 
 
@@ -906,7 +1294,7 @@ header img { height: 85%; }
 
 
 
-      }
+      });
 
 
 
@@ -914,31 +1302,27 @@ header img { height: 85%; }
 
 
 
-      // Attach double-click requirement to the "Already Joined" button
+      // Join Now button: it opens wa channel — we keep popup open so user can still click Already twice
 
 
 
-      if (alreadyBtn) {
+      joinBtn.addEventListener('click', function () {
 
 
 
-        alreadyBtn.addEventListener('click', tryClosePopup);
+        // allow user to open the channel in new tab; popup remains until Already clicked twice
 
 
 
-      }
+        // small optional feedback:
 
 
 
+        joinBtn.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-3px)' }, { transform: 'translateY(0)' }], { duration: 160 });
 
 
 
-
-      // Initial show after 2 seconds
-
-
-
-      setTimeout(showPopup, 2000);
+      });
 
 
 
@@ -946,11 +1330,27 @@ header img { height: 85%; }
 
 
 
-      // Re-show every 4 minutes while the user stays on the page
+      // show immediately
 
 
 
-      const FOUR_MIN = 4 * 60 * 1000;
+      showPopup();
+
+
+
+
+
+
+
+      // (Optional) re-show every 4 minutes if closed — but because user asked "block until already clicked twice",
+
+
+
+      // we will not auto re-show while it's open. If you want to re-show after close, uncomment below:
+
+
+
+      /* const FOUR_MIN = 4 * 60 * 1000;
 
 
 
@@ -978,11 +1378,39 @@ header img { height: 85%; }
 
 
 
-      }, FOUR_MIN);
+      }, FOUR_MIN); */
 
 
 
 
+
+
+
+      // Accessibility: close on Escape only after two clicks not allowed, so ignore ESC to prevent accidental close.
+
+
+
+      window.addEventListener('keydown', function (e) {
+
+
+
+        if (e.key === 'Escape') {
+
+
+
+          // do nothing to enforce two-click rule
+
+
+
+          e.preventDefault();
+
+
+
+        }
+
+
+
+      });
 
 
 
@@ -990,16 +1418,11 @@ header img { height: 85%; }
 
 
 
+  </script>
 
 
 
-
-  </script></body>
-
-
-
-</html>
-
+</body>
 
 
 
@@ -1007,51 +1430,4 @@ header img { height: 85%; }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
+      </html>

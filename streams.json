@@ -1,0 +1,202 @@
+{
+    "peng": {
+        "name": "prime english",
+        "mpd":"https://ottb.live.cf.ww.aiv-cdn.net/sin-nitro/live/dash/enc/ebgsyorlcl/out/v1/ce95d81f287040d5a3fa6d4b145be849/cenc.mpd",
+        "keyId": "dd288719ddc43d1e5775fc42727fd9c9",
+        "key": "3049143af6bd768c4b07a9da27f55764",
+        "poster": "https://mma.prnewswire.com/media/1919551/WillowTV_Logo.jpg?p=facebook"
+    },
+        "foffxh": {
+        "name": "Foxhindi",
+        "mpd": "https://hugh.cdn.rumble.cloud/live/u7gf26qm/slot-19/mifr-vsgy_720p/chunklist_DVR.m3u8"
+    },
+    "fox-1": {
+        "name": "fox",
+        "mpd": "https://hugh.cdn.rumble.cloud/live/u7gf26qm/slot-19/mifr-vsgy_360p/chunklist_DVR.m3u8"
+    },
+
+    "shoq": {
+        "name": "shoq",
+        "mpd": "https://live.shoq.com.pk/live/eds/ICC_Women_World_Cup_2025/DASH/ICC_Women_World_Cup_2025.mpd",
+        "keyId": "a6dfc4f17d70d8d07639659193f03b25",
+        "key": "893eacfabe386144b81733d622a7ad17",
+        "poster": "https://i.ytimg.com/vi/LXb3EKWsInQ/maxresdefault.jpg"
+    },
+    "phin": {
+        "name": "prime hindi",
+        "mpd": "https://ottb.live.cf.ww.aiv-cdn.net/sin-nitro/live/dash/enc/feh5lmnfkl/out/v1/2f30a0bcdbc64a09b2e101d0b71ed290/cenc.mpd",
+        "keyId": "c349ec4cb941fbf48a81798dffe7e5eb",
+        "key": "857bfaea3e7173bc3c63ce3749cabfcf",
+        "poster": "https://via.placeholder.com/1280x720/010409/FFFFFF.png?text=PRIME+HINDI"
+    },
+    "pl1":{
+        "name": "Premier league",
+        "mpd": "https://abizzcbaaaaaaaamlniubkrls2bb7.otte.live.cf.ww.aiv-cdn.net/fra-nitro/live/dash/enc/vwq77hfgzw/out/v1/b858e0b845c64cec953887bd4269e4ea/cenc.mpd",
+        "keyId": "1444f4235529f183f0a5a486befe9cdb",
+        "key": "e5e3fec67a1bb3472a2089c8a0a2557f",
+        "poster": "https://via.placeholder.com/1280x720/010409/FFFFFF.png?text=WILLOW+BY+CRICBUZZ"
+    },
+    "bi2":{
+        "name": "bein sports 2hd",
+        "mpd": "https://aba5sdmaaaaaaaamdwujas5g6mg4r.otte.live.cf.ww.aiv-cdn.net/syd-nitro/live/clients/dash/enc/8m8cd46i1t/out/v1/83985c68e4174e90a58a1f2c024be4c9/cenc.mpd",
+        "keyId": "0b42be2664d7e811d04f3e504e0924c5",
+        "key": "ae24090123b8c72ac5404dc152847cb8",
+        "poster": "https://via.placeholder.com/1280x720/010409/FFFFFF.png?text=WILLOW+BY+CRICBUZZ"
+    },
+    "willow": {
+        "name": "Willow",
+        "mpd": "https://ottb.live.cf.ww.aiv-cdn.net/bom-nitro/live/clients/dash/enc/f60kqesunw/out/v1/a435ed7a00f947deb4369b46d8f2fb70/cenc.mpd",
+        "keyId": "1779c27b9d077a3ba0c9cc1bb9a94b9f",
+        "key": "cc5cf3b7928fb9e0a1ee6a8b566f0a8e",
+        "poster": "https://via.placeholder.com/1280x720/010409/FFFFFF.png?text=WILLOW"
+    },
+    "tnt2": {
+        "name": "Tnt 2",
+        "mpd": "https://ottb.live.cf.ww.aiv-cdn.net/sin-nitro/live/dash/enc/f0qvkrra8j/out/v1/f8fa17f087564f51aa4d5c700be43ec4/cenc.mpd",
+        "keyId": "0d9efa8287a52a2497a281f7a9012211",
+        "key": "e4f832d372943014fe5c30928a90e547",
+        "poster": "https://via.placeholder.com/1280x720/010409/FFFFFF.png?text=TNT+2"
+    },
+    "tnt3": {
+        "name": "Tnt 3",
+        "mpd": "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/lsdasbvglv/out/v1/bb548a3626cd4708afbb94a58d71dce9/cenc.mpd",
+        "keyId": "08efc7fb107981608f7b64db5ea62469",
+        "key": "3a6844bc9f0d9d9fd962639d7e4eb76a",
+        "poster": "https://via.placeholder.com/1280x720/010409/FFFFFF.png?text=TNT+3"
+    },
+    "tnt4": {
+        "name": "Tnt 4",
+        "mpd": "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/i2pcjr4pe5/out/v1/912e9db56d75403b8a9ac0a719110f36/cenc.mpd",
+        "keyId": "192b1115da041585c77200128549efa1",
+        "key": "634e10efe4abbb14be400a3ccbac0258"
+    },
+    "tnt1": {
+        "name": "Tnt 1",
+        "mpd": "https://ottb.live.cf.ww.aiv-cdn.net/lhr-nitro/live/dash/enc/bsaaetko8v/out/v1/bd3b0c314fff4bb1ab4693358f3cd2d3/cenc.mpd",
+        "keyId": "d0f2e5c39e70c18f29bf77768a1ad89a",
+        "key": "d6853c51fcf37a18905f0609972395d7"
+    },
+    "wcbb": {
+        "name": "willow by cricbuzz",
+        "iframeSrc": "https://cricketstan.github.io/Willow-Cricbuzz-/"
+    },
+    "foxh": {
+        "id": "foxh",
+        "name": "Foxhindi",
+        "type": "iframe",
+        "iframeSrc": "https://matcheslinks-eaa.pages.dev/foxsrc"
+    },
+    "ss1h": {
+        "name": "Star Sports Hindi HD",
+        "mpd": "https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Sports_HD1_BTS/output/index.mpd",
+        "keyId": "400131994b445d8c8817202248760fda",
+        "key": "2d56cb6f07a75b9aff165d534ae2bfc4",
+        "license": {
+            "cookie": "__hdnea__=st=1761638433~exp=1761724833~acl=/*~hmac=73dc9de7ee518c6771ba315622d3fb7ccbcc1b99296dc31784cc226d1882cfeb",
+            "referer": "https://www.jiotv.com/",
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36"
+        }
+    },
+    "fox": {
+        "id": "fox",
+        "name": "Fox Cricket 501",
+        "type": "iframe",
+        "iframeSrc": "https://fox-501-allrounder745.onrender.com/"
+    },
+    "foxsports": {
+        "id": "fox",
+        "name": "Fox Cricket 501",
+        "type": "iframe",
+        "iframeSrc": "https://cricketstan.github.io/Fox-Cricket-/"
+    },
+    "ios": {
+        "id": "ios",
+        "name": "Appel Wale",
+        "type": "iframe",
+        "iframeSrc": "https://cricketstan.github.io/ios/"
+    },
+    "sl": {
+        "name": "sonyliv",
+        "type": "iframe",
+        "iframeSrc": "https://sonydaimenew.akamaized.net/hls/live/2018457/engvsnz/ENG/std_mdh-800300010.m3u8?hdnea=exp=1760810764~acl=/*~id=21295569609916440035509981405415~hmac=529319f1bf269649f80155359dee736525941bd98efd05e1407fa61c56c49f00"
+    },
+"hin-1":{
+      
+      "name": "Star Sports Hindi",
+      "type": "iframe",
+      "iframeSrc": "https://dillzycreations.github.io/Star-Sports-Hindi/"
+    },
+  "eng-1": {
+      
+      "name": "Star Sports 1",
+      "type": "iframe",
+      "iframeSrc": "https://cricketstan.github.io/Channel-14/"
+    },
+    "ss1e": {
+        "name": "Star Sports English HD",
+        "mpd": "https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports1_BTS/output/index.mpd",
+        "keyId": "df20894ec30954d3b28097c138f4cfda",
+        "key": "ff9b6292b1cddbd11a046029cb314634",
+        "license": {
+            "cookie": "__hdnea__=st=1760825242~exp=1760911642~acl=/*~hmac=55fe33f63426814f19d191097411f64f6541981e4ff9f47988781994f2191b45"
+        ,
+            "referer": "https://www.jiotv.com/",
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36"
+        }
+    },
+    "ss2e": {
+        "name": "Star Sports 2 English HD",
+        "mpd": "https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Sports_HD2_BTS/output/index.mpd",
+        "keyId": "9457eb90129456fa8ea95e10ba4ac51e",
+        "key": "e620a970cea474c491ac78ae71a4d764",
+        "license": {
+            "cookie": "__hdnea__=st=1761638433~exp=1761724833~acl=/*~hmac=73dc9de7ee518c6771ba315622d3fb7ccbcc1b99296dc31784cc226d1882cfeb",
+            "referer": "https://www.jiotv.com/",
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36"
+        }
+    },
+    "ss2h": {
+        "name": "Star Sports 2 Hindi HD",
+        "mpd": "https://jiotvmblive.cdn.jio.com/bpk-tv/Sports181_HD_BTS/output/index.mpd",
+        "keyId": "b9d4acedc66c5660a1e06197a55bccd2",
+        "key": "dd53bab1a42f41ae8f0a5c8fd286f456",
+        "license": {
+            "cookie": "__hdnea=st=1760612875~exp=1760699275~acl=/*~hmac=5cbee94370f44e0a0a2a3748435027da16df090de039d2c5720b18eaa165aa22",
+            "referer": "https://www.jiotv.com/",
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36"
+        }
+    },
+    "ss1tel": {
+        "name": "Star Sports1 Telugu HD",
+        "mpd": "https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports1_Telugu_HD_BTS/output/index.mpd",
+        "keyId": "49e84b9edfd85379b90c81b7d2d3d2bf",
+        "key": "19c82d3ff094fa06af95820a1572ecb5",
+        "license": {
+            "cookie": "__hdnea__=st=1761563293~exp=1761649693~acl=/*~hmac=75b9ab6bc6d919dc02b11b6faf702bba97ddfc3537c5e01e2d224389c691553d",
+            "referer": "https://www.jiotv.com/",
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36"
+        }
+    },
+    "ss1tam": {
+        "name": "Star Sports1 Tamil HD",
+        "mpd": "https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Sports1_Tamil_BTS/output/index.mpd",
+        "keyId": "d0d750ebd52b5756aa7fb833f61ceece",
+        "key": "4ae62a20c030c918aad24193c1dda229",
+        "license": {
+            "cookie": "__hdnea__=st=1761397230~exp=1761483630~acl=/*~hmac=9c2c1f2e9c9a3fc27acf8f8eac94bbdca40accbb9eb9a4e2e55e5a811d3dd8ea",
+            "referer": "https://www.jiotv.com/",
+            "userAgent": "plaYtv/7.1.5 (Linux;Android 13) ExoPlayerLib/2.11.6"
+        }
+    },
+    "ss1kan": {
+        "name": "Star Sports1 kannada HD",
+        "mpd": "https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports2_Kannada_BTS/output/index.mpd",
+        "keyId": "7af2add2968a56309519ac2680c18f25",
+        "key": "f992a14e0def17ccdfe16f58c4ce56c5",
+        "license": {
+            "cookie": "__hdnea__=st=1760017698~exp=1760104098~acl=/*~hmac=eec66b39bb92d469473abfb6ec142535d48adbaff00722b854e761b9a7a54c7d",
+            "referer": "https://www.jiotv.com/",
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36"
+        }
+    }
+}
